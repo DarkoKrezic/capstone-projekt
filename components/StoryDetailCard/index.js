@@ -32,6 +32,12 @@ const BackButtonContainer = styled.div`
 const BackButton = styled.button`
   margin-bottom: 1rem;
 `;
+const StoryDetailCreationDate = styled.p`
+  align-self: self-end;
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+`;
 
 export default function StoryDetailCard({ story }) {
   const router = useRouter();
@@ -45,6 +51,9 @@ export default function StoryDetailCard({ story }) {
       <TextContainer>
         <StoryText>{story.textContent}</StoryText>
       </TextContainer>
+      <StoryDetailCreationDate>
+        Erstellt am :{story.dateCreated}{" "}
+      </StoryDetailCreationDate>
       <BackButtonContainer>
         <BackButton onClick={handleBackToMyStoriesClick}>
           Back to My Stories
