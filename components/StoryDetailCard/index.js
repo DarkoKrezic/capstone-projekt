@@ -12,14 +12,14 @@ const StoryTitle = styled.h1`
   margin-bottom: 1rem;
 `;
 const StoryCoverImage = styled.img`
-  width: 50%;
+  width: 70%;
   object-fit: cover;
   margin-bottom: 1rem;
 `;
 const TextContainer = styled.div`
-  display: flex;
-  max-height: 50%;
+  max-height: 400px;
   width: 90%;
+  overflow: scroll;
 `;
 const StoryText = styled.p`
   font-size: 1.2rem;
