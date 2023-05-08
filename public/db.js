@@ -2,7 +2,7 @@ const stories = [
   {
     id: 1,
     title: "Hanni und Hasi",
-    content:
+    textContent:
       "Hanni liebte ihren Kuschelhasen Hasi über alles. Eines sonnigen Tages beschloss sie, mit ihm in den Park zu gehen. Als sie im Park ankamen, sah Hanni, dass ihre Freunde dort spielten. Sie rannte zu ihnen und stellte Hasi vor. 'Hasi möchte gerne mitspielen', sagte Hanni. Ihre Freunde waren begeistert und bald spielten sie alle zusammen. Sie rannten, lachten und hatten eine Menge Spaß. Doch dann fiel Hanni auf, dass ihr kleiner Bruder, der ebenfalls im Park war, alleine auf einer Bank saß und weinte. Sie rannte zu ihm und fragte, was los war. Ihr Bruder hatte sein Spielzeug verloren und war traurig. Hanni dachte einen Moment nach und sagte dann: 'Ich habe eine Idee. Wie wäre es, wenn wir das Spielzeug teilen und gemeinsam spielen?' Ihr Bruder lächelte und sie gingen zurück zu den anderen Kindern. Hanni erklärte die Situation und bald spielten alle zusammen mit dem Spielzeug. Als es Zeit war, nach Hause zu gehen, sagte einer von Hannis Freunden: 'Danke, dass du uns das Teilen beigebracht hast. Wir hatten eine großartige Zeit!' Hanni lächelte und Hasi knuddelte sie. Sie war glücklich, dass sie eine gute Zeit hatte und ihren Freunden das Teilen beibringen konnte.",
     coverImage: "/images/hanni-und-hasi-im-park.png",
     dateCreated: "01.05.2023",
