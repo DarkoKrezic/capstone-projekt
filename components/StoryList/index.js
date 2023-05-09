@@ -1,7 +1,6 @@
 import React from "react";
-import stories from "@/public/db";
-import Image from "next/image";
 import styled from "styled-components";
+import Link from "next/link";
 
 const Header = styled.h1`
   font-size: 2rem;
@@ -47,16 +46,18 @@ const StoryCreationDate = styled.p`
   margin: 0;
 `;
 
-function StoryList() {
+function StoryList({ stories }) {
   return (
     <StoryListContainer>
       <Header>My Stories</Header>
       {stories.map((story) => (
-        <StoryListCard key={story.id}>
-          <StoryCoverImage src={story.coverImage} alt={story.title} />
-          <StoryTitle>{story.title}</StoryTitle>
-          <StoryCreationDate>{story.dateCreated}</StoryCreationDate>
-        </StoryListCard>
+        <Link key={story.id} href={`/stories/${story.id}`}>
+          <StoryListCard>
+            <StoryCoverImage src={story.coverImage} alt={story.title} />
+            <StoryTitle>{story.title}</StoryTitle>
+            <StoryCreationDate>{story.dateCreated}</StoryCreationDate>
+          </StoryListCard>
+        </Link>
       ))}
     </StoryListContainer>
   );

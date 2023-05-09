@@ -1,12 +1,7 @@
-import Link from "next/link";
+import StoryList from "@/components/StoryList";
+import stories from "@/public/db";
+import { useRouter } from "next/router";
 
 export default function HomePage() {
-  return (
-    <div>
-      <h1>Willkommen zum Geschichten Brunnen</h1>
-      <Link href="/storyList">
-        <button>Go to my stories</button>
-      </Link>
-    </div>
-  );
+  return <StoryList stories={stories} />;
 }
