@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const Header = styled.h1`
   font-size: 2rem;
@@ -46,7 +47,17 @@ const StoryCreationDate = styled.p`
   margin: 0;
 `;
 
-function StoryList({ stories }) {
+function StoryList() {
+  const [stories, setStories] = useState([]);
+  useEffect(() => {
+    const storedStories = localStorage.getItem("stories");
+    if (storedStories) {
+      setStories(JSON.parse(storedStories));
+    }
+  }, []);
+  //console.log(localStorage.getItem("stories"));
+
+  //console.log(stories);
   return (
     <StoryListContainer>
       <Header>My Stories</Header>

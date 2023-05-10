@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
+//import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,11 +13,6 @@ const Title = styled.h1`
   font-size: 2rem;
   margin-bottom: 1rem;
 `;
-// const CoverImage = styled.img`
-//   width: 60%;
-//   object-fit: cover;
-//   margin-bottom: 1rem;
-// `;
 const TextContainer = styled.div`
   max-height: 300px;
   width: 90%;
