@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import stories from "@/public/db";
+//import stories from "@/public/db";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 const Form = styled.form`
   display: flex;
@@ -37,11 +36,11 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default function NewStory() {
+export default function NewStoryForm({ onSubmit, setStories }) {
   const [title, setTitle] = useState("");
   const [coverImage, setCoverImage] = useState(null);
   const [textContent, setTextContent] = useState("");
-  const router = useRouter();
+  //const router = useRouter();
 
   function handleTitleChange(event) {
     setTitle(event.target.value);
@@ -57,23 +56,28 @@ export default function NewStory() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const storiesFromLocalStorage =
+      JSON.parse(localStorage.getItem("stories")) || [];
+
     const newStory = {
-      id: stories.length + 1,
+      id: storiesFromLocalStorage.length + 1,
       title: title,
       coverImage: URL.createObjectURL(coverImage),
       textContent: textContent,
       dateCreated: new Date().toLocaleDateString(),
     };
+    onSubmit(newStory);
+    const updatedStories = [newStory, ...storiesFromLocalStorage];
+    setStories(updatedStories);
+    console.log(updatedStories);
 
-    const updatedStories = [newStory, ...stories];
-    stories.splice(0, stories.length, ...updatedStories);
     localStorage.setItem("stories", JSON.stringify(updatedStories));
-    setTitle("");
-    setCoverImage(null);
-    setTextContent("");
-    router.push("/");
-    //console.log(updatedStories);
-    //console.log(localStorage.getItem("stories"));
+    console.log(localStorage.getItem("stories"));
+
+    // setTitle("");
+    // setCoverImage(null);
+    // setTextContent("");
+    // router.push("/");
   }
   return (
     <Form onSubmit={handleSubmit}>
@@ -102,8 +106,6 @@ export default function NewStory() {
         placeholder="Write your story here"
         value={textContent}
         onChange={handleTextChange}
-        // rows={20}
-        // cols={30}
         required
       />
 

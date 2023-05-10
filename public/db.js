@@ -1,4 +1,4 @@
-const stories = [
+const initialStories = [
   {
     id: 1,
     title: "Hanni und Hasi",
@@ -33,4 +33,4 @@ const stories = [
   },
 ];
 
-export default stories;
+export default initialStories;
