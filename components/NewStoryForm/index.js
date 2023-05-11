@@ -21,7 +21,7 @@ const TextArea = styled.textarea`
   font-size: 1rem;
   width: 90%;
   height: 50vh;
-  resize: none;
+  resize: true;
 `;
 
 const Button = styled.button`
@@ -34,7 +34,10 @@ const Button = styled.button`
   border-radius: 4px;
   cursor: pointer;
 `;
-
+const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5rem;
+`;
 export default function NewStoryForm({ onSubmit, setStories }) {
   const [title, setTitle] = useState("");
   const [coverImage, setCoverImage] = useState(null);
@@ -67,25 +70,31 @@ export default function NewStoryForm({ onSubmit, setStories }) {
     onSubmit(newStory);
     const updatedStories = [newStory, ...storiesFromLocalStorage];
     setStories(updatedStories);
-    console.log(updatedStories);
 
     localStorage.setItem("stories", JSON.stringify(updatedStories));
-    console.log(localStorage.getItem("stories"));
   }
   return (
     <Form onSubmit={handleSubmit}>
+      <Label htmlFor="title-input">Story Title:</Label>
       <Input
+        id="title-input"
         type="text"
-        placeholder="Story Title"
+        placeholder="Name of your Story"
         value={title}
         onChange={handleTitleChange}
         required
+        aria-required="true"
+        aria-label="Story Title"
       />
+      <Label htmlFor="image-input">Cover Image:</Label>
       <Input
+        id="image-input"
         type="file"
         accept="image/*"
         onChange={handleImageChange}
         required
+        aria-required="true"
+        aria-label="Cover Image"
       />
       {coverImage && (
         <Image
@@ -95,14 +104,19 @@ export default function NewStoryForm({ onSubmit, setStories }) {
           height="200"
         />
       )}
+      <Label htmlFor="text-input">Schreib Deine Geschichte:</Label>
       <TextArea
+        id="text-input"
         placeholder="Write your story here"
         value={textContent}
         onChange={handleTextChange}
         required
+        aria-label="Schreib hier Deine Geschichte"
       />
 
-      <Button type="submit">Save</Button>
+      <Button type="submit" aria-label="Save your story">
+        Save
+      </Button>
     </Form>
   );
 }
