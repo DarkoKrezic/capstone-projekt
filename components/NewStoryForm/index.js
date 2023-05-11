@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-//import stories from "@/public/db";
 import Image from "next/image";
 
 const Form = styled.form`
@@ -40,7 +39,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
   const [title, setTitle] = useState("");
   const [coverImage, setCoverImage] = useState(null);
   const [textContent, setTextContent] = useState("");
-  //const router = useRouter();
 
   function handleTitleChange(event) {
     setTitle(event.target.value);
@@ -73,11 +71,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
 
     localStorage.setItem("stories", JSON.stringify(updatedStories));
     console.log(localStorage.getItem("stories"));
-
-    // setTitle("");
-    // setCoverImage(null);
-    // setTextContent("");
-    // router.push("/");
   }
   return (
     <Form onSubmit={handleSubmit}>

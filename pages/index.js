@@ -1,5 +1,4 @@
 import StoryList from "@/components/StoryList";
-//import stories from "@/public/db";
 import styled from "styled-components";
 import Link from "next/link";
 
