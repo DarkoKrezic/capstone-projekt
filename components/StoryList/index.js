@@ -17,7 +17,7 @@ function StoryList() {
   useEffect(() => {
     const storedStories = JSON.parse(localStorage.getItem("stories"));
 
-    if (storedStories && Array.isArray(storedStories)) {
+    if (storedStories && storedStories.length > 0) {
       setStories(storedStories);
     } else {
       localStorage.setItem("stories", JSON.stringify(initialStories));
