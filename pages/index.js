@@ -6,11 +6,11 @@ const Button = styled.button`
   margin-bottom: 1rem;
 `;
 
-export default function HomePage() {
+export default function HomePage({ stories }) {
   return (
     <>
-      <StoryList />
-      <Link href="/NewStoryPage">
+      <StoryList stories={stories} />
+      <Link href="/CreateStory">
         <Button type="button">Add new story</Button>
       </Link>
     </>

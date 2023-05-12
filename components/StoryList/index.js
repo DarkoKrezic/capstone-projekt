@@ -1,5 +1,4 @@
 import Link from "next/link";
-//import { useState, useEffect } from "react";
 import {
   Header,
   StoryListContainer,
@@ -8,24 +7,9 @@ import {
   StoryCoverImage,
   StoryCreationDate,
 } from "./StyledStoryList";
-import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 
-import initialStories from "@/public/db.js";
-
-function StoryList() {
-  const [stories, setStories] = useImmerLocalStorageState("stories", {
-    defaultValue: [],
-  });
-  if (typeof window !== "undefined") {
-    const storedStories = JSON.parse(localStorage.getItem("stories"));
-    if (!storedStories || storedStories.length === 0) {
-      localStorage.setItem("stories", JSON.stringify(initialStories));
-      setStories(initialStories);
-    }
-  }
-
-  console.log("stories:", stories);
-
+function StoryList({ stories }) {
+  //console.log("stories:", stories);
   return (
     <StoryListContainer>
       <Header>My Stories</Header>

@@ -1,43 +1,7 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Image from "next/image";
+import { Form, Input, TextArea, Button, Label } from "./StyledNewStoryForm";
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem;
-`;
-
-const Input = styled.input`
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-`;
-
-const TextArea = styled.textarea`
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  font-size: 1rem;
-  width: 90%;
-  height: 50vh;
-  resize: true;
-`;
-
-const Button = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-`;
-const Label = styled.label`
-  display: block;
-  margin-bottom: 0.5rem;
-`;
 export default function NewStoryForm({ onSubmit, setStories }) {
   const [title, setTitle] = useState("");
   const [coverImage, setCoverImage] = useState(null);
@@ -59,7 +23,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
     event.preventDefault();
     const storiesFromLocalStorage =
       JSON.parse(localStorage.getItem("stories")) || [];
-
     const newStory = {
       id: storiesFromLocalStorage.length + 1,
       title: title,
@@ -68,10 +31,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       dateCreated: new Date().toLocaleDateString(),
     };
     onSubmit(newStory);
-    const updatedStories = [newStory, ...storiesFromLocalStorage];
-    setStories(updatedStories);
-
-    localStorage.setItem("stories", JSON.stringify(updatedStories));
   }
   return (
     <Form onSubmit={handleSubmit}>
