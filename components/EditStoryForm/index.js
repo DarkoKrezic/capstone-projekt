@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Form, Input, TextArea, Button, Label } from "./StyledNewStoryForm";
+import {
+  Form,
+  Input,
+  TextArea,
+  Button,
+  Label,
+} from "../components/StyledNewStoryForm";
 
-export default function NewStoryForm({ onSubmit, setStories }) {
-  const [title, setTitle] = useState("");
+export default function EditStory({ story, onSubmit }) {
+  const [title, setTitle] = useState(story.title);
   const [coverImage, setCoverImage] = useState(null);
-  const [textContent, setTextContent] = useState("");
-
+  const [textContent, setTextContent] = useState(story.textContent);
   const [isUploading, setIsUploading] = useState(false);
-  // const [uploadedImages, setUploadedImages] = useState([]);
 
   function handleTitleChange(event) {
     setTitle(event.target.value);
@@ -17,7 +21,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
   function handleImageChange(event) {
     const file = event.target.files[0];
     setCoverImage(file);
-    // setImageValue(event.target.value);
   }
 
   function handleTextChange(event) {
@@ -29,28 +32,31 @@ export default function NewStoryForm({ onSubmit, setStories }) {
     setIsUploading(true);
 
     const formData = new FormData();
-    formData.append("file", coverImage);
-    formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+    if (coverImage) {
+      formData.append("file", coverImage);
+      formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+    }
     try {
-      const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const json = await response.json();
-      const storiesFromLocalStorage =
-        JSON.parse(localStorage.getItem("stories")) || [];
-      const newStory = {
-        id: storiesFromLocalStorage.length + 1,
-        title: title,
-        coverImage: json.secure_url,
-        textContent: textContent,
-        dateCreated: new Date().toLocaleDateString(),
+      let coverImageUrl = story.coverImage;
+      if (coverImage) {
+        const response = await fetch(
+          `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+        const json = await response.json();
+        coverImageUrl = json.secure_url;
+      }
+      const updatedStory = {
+        ...story,
+        title,
+        coverImage: coverImageUrl,
+        textContent,
+        dateModified: new Date().toLocaleDateString(),
       };
-      onSubmit(newStory);
+      onSubmit(updatedStory);
     } catch (error) {
       console.error(error);
     } finally {
@@ -59,6 +65,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       setTextContent("");
     }
   }
+
   return (
     <Form onSubmit={handleSubmit}>
       <Label htmlFor="title-input">Story Title:</Label>
@@ -78,8 +85,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
         type="file"
         accept="image/*"
         onChange={handleImageChange}
-        required
-        aria-required="true"
         aria-label="Cover Image"
       />
       {coverImage && (
@@ -90,14 +95,22 @@ export default function NewStoryForm({ onSubmit, setStories }) {
           height="200"
         />
       )}
-      <Label htmlFor="text-input">Schreib Deine Geschichte:</Label>
+      {!coverImage && story.coverImage && (
+        <Image
+          src={story.coverImage}
+          alt={`Preview of ${title}`}
+          width="200"
+          height="200"
+        />
+      )}
+      <Label htmlFor="text-input">Edit Your Story:</Label>
       <TextArea
         id="text-input"
         placeholder="Write your story here"
         value={textContent}
         onChange={handleTextChange}
         required
-        aria-label="Schreib hier Deine Geschichte"
+        aria-label="Edit Your Story"
       />
 
       <Button type="submit" aria-label="Save your story">

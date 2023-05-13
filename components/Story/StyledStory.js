@@ -27,3 +27,6 @@ export const CreationDate = styled.p`
   color: #666;
   margin: 0;
 `;
+export const EditButton = styled.button`
+  margin-bottom: 1rem;
+`;
