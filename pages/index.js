@@ -1,7 +1,18 @@
 import StoryList from "@/components/StoryList";
-import stories from "@/public/db";
-import { useRouter } from "next/router";
+import styled from "styled-components";
+import Link from "next/link";
 
-export default function HomePage() {
-  return <StoryList stories={stories} />;
+const Button = styled.button`
+  margin-bottom: 1rem;
+`;
+
+export default function HomePage({ stories }) {
+  return (
+    <>
+      <StoryList stories={stories} />
+      <Link href="/CreateStory">
+        <Button type="button">Add new story</Button>
+      </Link>
+    </>
+  );
 }

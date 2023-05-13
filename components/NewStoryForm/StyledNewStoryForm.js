@@ -1,0 +1,37 @@
+import styled from "styled-components";
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+`;
+
+export const Input = styled.input`
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+`;
+
+export const TextArea = styled.textarea`
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 90%;
+  height: 50vh;
+  resize: true;
+`;
+
+export const Button = styled.button`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 0.5rem;
+`;

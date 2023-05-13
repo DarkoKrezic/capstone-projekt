@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import StoryDetailCard from "@/components/Story";
-import stories from "@/public/db";
 
-function StoryDetailPage() {
+function StoryDetailPage({ stories }) {
   const router = useRouter();
   const { id } = router.query;
 
