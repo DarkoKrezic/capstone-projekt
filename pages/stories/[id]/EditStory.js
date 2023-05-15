@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 import EditStoryForm from "@/components/EditStoryForm";
-//import { useState } from "react";
-import { produce } from "immer";
 export default function EditStoryPage({}) {
   const router = useRouter();
   const { id } = router.query;
@@ -23,7 +21,6 @@ export default function EditStoryPage({}) {
       return story;
     });
     setStories(updatedStories);
-    // setStoryToEdit(updatedStory);
     router.push("/");
   }
 
