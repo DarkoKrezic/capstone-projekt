@@ -7,8 +7,6 @@ import {
   Button,
   Label,
 } from "../NewStoryForm/StyledNewStoryForm";
-//import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
-//import produce from "use-immer";
 export default function EditStoryForm({ story, onUpdate }) {
   const [title, setTitle] = useState(story.title);
   const [coverImage, setCoverImage] = useState(null);
@@ -50,13 +48,6 @@ export default function EditStoryForm({ story, onUpdate }) {
         const json = await response.json();
         coverImageUrl = json.secure_url;
       }
-
-      //   const updatedStory = produce(story, (draft) => {
-      //     draft.title = title;
-      //     draft.coverImage = coverImageUrl;
-      //     draft.textContent = textContent;
-      //     draft.dateModified = new Date().toLocaleDateString();
-      //   });
 
       const updatedStory = {
         ...story,
