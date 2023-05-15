@@ -8,6 +8,7 @@ import {
   StoryText,
   BackButton,
   CreationDate,
+  EditButton,
 } from "./StyledStory";
 
 export default function StoryDetailCard({ story }) {
@@ -26,6 +27,9 @@ export default function StoryDetailCard({ story }) {
       <CreationDate>Erstellt am :{story.dateCreated} </CreationDate>
       <Link href="/">
         <BackButton type="button">Back to My Stories</BackButton>
+      </Link>
+      <Link href={`/stories/${story.id}/EditStory`}>
+        <EditButton type="button">Edit story</EditButton>
       </Link>
     </CardContainer>
   );
