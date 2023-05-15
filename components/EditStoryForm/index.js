@@ -7,14 +7,13 @@ import {
   Button,
   Label,
 } from "../NewStoryForm/StyledNewStoryForm";
-import { produce } from "use-immer";
-
+//import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
+// import produce from "use-immer";
 export default function EditStoryForm({ story, onUpdate }) {
   const [title, setTitle] = useState(story.title);
-  const [coverImage, setCoverImage] = useState(story.coverImage);
+  const [coverImage, setCoverImage] = useState(null);
   const [textContent, setTextContent] = useState(story.textContent);
   const [isUploading, setIsUploading] = useState(false);
-  const [isNewImageSelected, setIsNewImageSelected] = useState(false);
 
   function handleTitleChange(event) {
     setTitle(event.target.value);
@@ -34,13 +33,13 @@ export default function EditStoryForm({ story, onUpdate }) {
     setIsUploading(true);
 
     const formData = new FormData();
-    if (isNewImageSelected) {
-      formData.append("file", updatedImage);
+    if (coverImage) {
+      formData.append("file", coverImage);
       formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
     }
     try {
-      let updatedImageUrl = story.coverImage;
-      if (isNewImageSelected) {
+      let coverImageUrl = story.coverImage;
+      if (coverImage) {
         const response = await fetch(
           `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
           {
@@ -49,16 +48,23 @@ export default function EditStoryForm({ story, onUpdate }) {
           }
         );
         const json = await response.json();
-        updatedImageUrl = json.secure_url;
+        coverImageUrl = json.secure_url;
       }
 
-      const updatedStory = produce(story, (draft) => {
-        draft.title = title;
-        draft.coverImage = updatedImageUrl;
-        draft.textContent = textContent;
-        draft.dateModified = new Date().toLocaleDateString();
-      });
-      console.log(updatedStory);
+      //   const updatedStory = produce(story, (draft) => {
+      //     draft.title = title;
+      //     draft.coverImage = coverImageUrl;
+      //     draft.textContent = textContent;
+      //     draft.dateModified = new Date().toLocaleDateString();
+      //   });
+
+      const updatedStory = {
+        ...story,
+        title,
+        coverImage: coverImageUrl,
+        textContent,
+        dateModified: new Date().toLocaleDateString(),
+      };
       onUpdate(updatedStory);
     } catch (error) {
       console.error(error);

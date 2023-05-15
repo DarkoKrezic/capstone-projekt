@@ -5,13 +5,14 @@ import { useState } from "react";
 export default function EditStoryPage({}) {
   const router = useRouter();
   const { id } = router.query;
-
+  console.log(id);
   const [stories, setStories] = useImmerLocalStorageState("stories", []);
-
+  console.log(stories);
   const storyToEdit = stories.find((story) => story.id === parseInt(id));
   if (!storyToEdit) {
     console.error("No story to edit found");
   }
+  console.log(storyToEdit);
 
   function handleStoryUpdate(updatedStory) {
     const updatedStories = stories.map((story) => {
@@ -21,7 +22,7 @@ export default function EditStoryPage({}) {
       return story;
     });
     setStories(updatedStories);
-    setStoryToEdit(updatedStory);
+    // setStoryToEdit(updatedStory);
     router.push("/");
   }
 
