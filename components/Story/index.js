@@ -28,7 +28,7 @@ export default function StoryDetailCard({ story }) {
       <Link href="/">
         <BackButton type="button">Back to My Stories</BackButton>
       </Link>
-      <Link href="/EditStory">
+      <Link href={`/stories/${story.id}/EditStory`}>
         <EditButton type="button">Edit story</EditButton>
       </Link>
     </CardContainer>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   Form,
@@ -6,13 +6,15 @@ import {
   TextArea,
   Button,
   Label,
-} from "../components/StyledNewStoryForm";
+} from "../NewStoryForm/StyledNewStoryForm";
+import { produce } from "use-immer";
 
-export default function EditStory({ story, onSubmit }) {
+export default function EditStoryForm({ story, onUpdate }) {
   const [title, setTitle] = useState(story.title);
-  const [coverImage, setCoverImage] = useState(null);
+  const [coverImage, setCoverImage] = useState(story.coverImage);
   const [textContent, setTextContent] = useState(story.textContent);
   const [isUploading, setIsUploading] = useState(false);
+  const [isNewImageSelected, setIsNewImageSelected] = useState(false);
 
   function handleTitleChange(event) {
     setTitle(event.target.value);
@@ -27,18 +29,18 @@ export default function EditStory({ story, onSubmit }) {
     setTextContent(event.target.value);
   }
 
-  async function handleSubmit(event) {
+  async function handleSubmitEdit(event) {
     event.preventDefault();
     setIsUploading(true);
 
     const formData = new FormData();
-    if (coverImage) {
-      formData.append("file", coverImage);
+    if (isNewImageSelected) {
+      formData.append("file", updatedImage);
       formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
     }
     try {
-      let coverImageUrl = story.coverImage;
-      if (coverImage) {
+      let updatedImageUrl = story.coverImage;
+      if (isNewImageSelected) {
         const response = await fetch(
           `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
           {
@@ -47,27 +49,27 @@ export default function EditStory({ story, onSubmit }) {
           }
         );
         const json = await response.json();
-        coverImageUrl = json.secure_url;
+        updatedImageUrl = json.secure_url;
       }
-      const updatedStory = {
-        ...story,
-        title,
-        coverImage: coverImageUrl,
-        textContent,
-        dateModified: new Date().toLocaleDateString(),
-      };
-      onSubmit(updatedStory);
+
+      const updatedStory = produce(story, (draft) => {
+        draft.title = title;
+        draft.coverImage = updatedImageUrl;
+        draft.textContent = textContent;
+        draft.dateModified = new Date().toLocaleDateString();
+      });
+      console.log(updatedStory);
+      onUpdate(updatedStory);
     } catch (error) {
       console.error(error);
     } finally {
       setIsUploading(false);
       setCoverImage(null);
-      setTextContent("");
     }
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmitEdit}>
       <Label htmlFor="title-input">Story Title:</Label>
       <Input
         id="title-input"
