@@ -28,6 +28,7 @@ export default function App({ Component, pageProps }) {
         stories={stories}
         addStory={addStory}
         updateStory={updateStory}
+        setStories={setStories}
       />
     </>
   );
