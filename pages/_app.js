@@ -20,6 +20,9 @@ export default function App({ Component, pageProps }) {
       })
     );
   }
+  function deleteStory(id) {
+    setStories((prevStories) => prevStories.filter((story) => story.id !== id));
+  }
   return (
     <>
       <GlobalStyle />
@@ -29,6 +32,7 @@ export default function App({ Component, pageProps }) {
         addStory={addStory}
         updateStory={updateStory}
         setStories={setStories}
+        deleteStory={deleteStory}
       />
     </>
   );

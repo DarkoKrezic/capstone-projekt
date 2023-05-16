@@ -54,7 +54,7 @@ export default function EditStoryForm({ story, onUpdate }) {
         title,
         coverImage: coverImageUrl,
         textContent,
-        dateModified: new Date().toLocaleDateString(),
+        dateModified: new Date().toISOString(),
       };
       onUpdate(updatedStory);
     } catch (error) {

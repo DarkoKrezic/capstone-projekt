@@ -7,9 +7,14 @@ import {
   StoryCoverImage,
   StoryCreationDate,
 } from "./StyledStoryList";
+import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 
-function StoryList({ stories }) {
-  //console.log("stories:", stories);
+function StoryList() {
+  const [stories, setStories] = useImmerLocalStorageState("stories", []);
+  if (!stories || stories.length === 0) {
+    return <p>Loading stories...</p>;
+  }
+
   return (
     <StoryListContainer>
       <Header>My Stories</Header>
