@@ -30,3 +30,6 @@ export const CreationDate = styled.p`
 export const EditButton = styled.button`
   margin-bottom: 1rem;
 `;
+export const DeleteButton = styled.button`
+  margin-bottom: 1rem;
+`;
