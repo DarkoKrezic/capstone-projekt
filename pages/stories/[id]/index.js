@@ -5,7 +5,7 @@ function StoryDetailPage({ stories, deleteStory }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const story = stories.find((story) => story.id === parseInt(id));
+  const story = stories.find((story) => story.id === id);
 
   if (!story) {
     return <p>Story not found</p>;

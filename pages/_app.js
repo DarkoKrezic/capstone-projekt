@@ -1,7 +1,6 @@
 import GlobalStyle from "../styles";
 import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 import initialStories from "@/db.js";
-import produce from "immer";
 
 export default function App({ Component, pageProps }) {
   const [stories, setStories] = useImmerLocalStorageState("stories", {
@@ -24,16 +23,6 @@ export default function App({ Component, pageProps }) {
   function deleteStory(id) {
     setStories((prevStories) => prevStories.filter((story) => story.id !== id));
   }
-  // function deleteStory(storyId) {
-  //   setStories((prevStories) =>
-  //     produce(prevStories, (draft) => {
-  //       const index = draft.findIndex((story) => story.id === storyId);
-  //       if (index !== -1) {
-  //         draft.splice(index, 1);
-  //       }
-  //     })
-  //   );
-  // }
   return (
     <>
       <GlobalStyle />
@@ -44,7 +33,6 @@ export default function App({ Component, pageProps }) {
         updateStory={updateStory}
         setStories={setStories}
         deleteStory={deleteStory}
-        produce={produce}
       />
     </>
   );

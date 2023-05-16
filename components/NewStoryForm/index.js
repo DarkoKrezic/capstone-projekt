@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Form, Input, TextArea, Button, Label } from "./StyledNewStoryForm";
+import { v4 as uuidv4 } from "uuid";
 
 export default function NewStoryForm({ onSubmit, setStories }) {
   const [title, setTitle] = useState("");
@@ -8,7 +9,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
   const [textContent, setTextContent] = useState("");
 
   const [isUploading, setIsUploading] = useState(false);
-  // const [uploadedImages, setUploadedImages] = useState([]);
 
   function handleTitleChange(event) {
     setTitle(event.target.value);
@@ -17,7 +17,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
   function handleImageChange(event) {
     const file = event.target.files[0];
     setCoverImage(file);
-    // setImageValue(event.target.value);
   }
 
   function handleTextChange(event) {
@@ -44,7 +43,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       const storiesFromLocalStorage =
         JSON.parse(localStorage.getItem("stories")) || [];
       const newStory = {
-        id: storiesFromLocalStorage.length + 1,
+        id: uuidv4(),
         title: title,
         coverImage: json.secure_url,
         textContent: textContent,
