@@ -11,11 +11,9 @@ export const Title = styled.h1`
   background-image: url(${headerImage});
   background-size: cover;
   background-position: center;
-  /* height: 70px; */
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 3rem;
 `;
 
 export const TextContainer = styled.div`
