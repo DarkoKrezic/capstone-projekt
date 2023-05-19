@@ -67,23 +67,16 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
-// export const Button = styled.button`
-//   margin-bottom: 1rem;
-// `;
 export const AddStoryButton = styled.button`
-  align-self: center;
-  background-color: #fff;
   background-image: url(${headerImage});
-  background-position: 0 90%;
   background-repeat: repeat no-repeat;
   background-size: cover;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  border-radius: 2rem 15rem 15rem 2rem 2rem 15rem 15rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
   font-size: 1rem;
-  line-height: 1rem;
   outline: none;
-  padding: 0.75rem;
+  padding: 1rem 2rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 2rem 15rem;
