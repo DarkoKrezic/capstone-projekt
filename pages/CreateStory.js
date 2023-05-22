@@ -24,13 +24,7 @@ export default function NewStoryPage({ addStory }) {
   return (
     <>
       <Header>Create a new story</Header>
-      <Label htmlFor="Click-to-use-Storyteller">
-        Click here to use the Storyteller to create a new Story
-      </Label>
-      <Button
-        id="Click-to-use-Storyteller"
-        onClick={() => router.push("/StorytellerPage")}
-      >
+      <Button onClick={() => router.push("/StorytellerPage")}>
         Use Storyteller
       </Button>
       <NewStoryForm onSubmit={handleStorySubmit} />

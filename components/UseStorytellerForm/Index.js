@@ -3,12 +3,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { Form } from "../NewStoryForm/StyledNewStoryForm";
 import { ListBackgroundImage } from "@/styles";
-// export const Container = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   margin: 2rem;
-// `;
+
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;

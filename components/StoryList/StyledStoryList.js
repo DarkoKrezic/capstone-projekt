@@ -14,7 +14,30 @@ export const Header = styled.h1`
   padding-bottom: 2rem;
 `;
 
-export const StoryListContainer = styled.div`
+export const AddStoryLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  background-image: url(${headerImage});
+  background-repeat: repeat no-repeat;
+  background-size: cover;
+  box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+
+  &:focus {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+  }
+`;
+export const StoryListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -67,32 +90,6 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
-export const AddStoryButton = styled.button`
-  background-image: url(${headerImage});
-  background-repeat: repeat no-repeat;
-  background-size: cover;
-  border-radius: 2rem 15rem 15rem 2rem 2rem 15rem 15rem 2rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  outline: none;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 2rem 15rem;
-  border-bottom-right-radius: 15rem 2rem;
-  border-top-left-radius: 15rem 2rem;
-  border-top-right-radius: 2rem 15rem;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-  }
-
-  &:focus {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
-  }
+export const StyledListItem = styled.li`
+  list-style: none;
 `;
