@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { headerImage } from "@/styles";
 export const CardContainer = styled.main`
   display: flex;
   flex-direction: column;
@@ -7,8 +7,15 @@ export const CardContainer = styled.main`
 `;
 export const Title = styled.h1`
   font-size: 2rem;
-  margin-bottom: 1rem;
+  text-align: center;
+  background-image: url(${headerImage});
+  background-size: cover;
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 2rem 3rem;
 `;
+
 export const TextContainer = styled.div`
   max-height: 300px;
   width: 90%;

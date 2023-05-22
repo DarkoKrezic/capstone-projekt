@@ -1,17 +1,56 @@
 import styled from "styled-components";
+import { headerImage, ListBackgroundImage } from "@/styles";
+import Link from "next/link";
 
 export const Header = styled.h1`
   font-size: 2rem;
   text-align: center;
+  background-image: url(${headerImage});
+  background-size: cover;
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 `;
 
-export const StoryListContainer = styled.div`
+export const AddStoryLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  background-image: url(${headerImage});
+  background-repeat: repeat no-repeat;
+  background-size: cover;
+  box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+
+  &:focus {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+  }
+`;
+export const StoryListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
   gap: 1rem;
+  background-image: url(${ListBackgroundImage});
+  background-size: cover;
+  background-position: center;
+  background-size: 100% 115%;
+  background-repeat: no-repeat;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 `;
 
 export const StoryListCard = styled.div`
@@ -20,7 +59,8 @@ export const StoryListCard = styled.div`
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  width: 90%;
+  width: 70%;
+  margin: 0 auto;
 
   &:hover {
     cursor: pointer;
@@ -45,4 +85,11 @@ export const StoryCreationDate = styled.p`
   font-size: 0.8rem;
   color: #666;
   margin: 0;
+`;
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+export const StyledListItem = styled.li`
+  list-style: none;
 `;

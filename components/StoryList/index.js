@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import {
   Header,
   StoryListContainer,
@@ -6,6 +6,9 @@ import {
   StoryTitle,
   StoryCoverImage,
   StoryCreationDate,
+  StyledLink,
+  AddStoryLink,
+  StyledListItem,
 } from "./StyledStoryList";
 import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 
@@ -16,19 +19,23 @@ function StoryList() {
   }
 
   return (
-    <StoryListContainer>
+    <>
       <Header>My Stories</Header>
-
-      {stories.map((story) => (
-        <Link key={story.id} href={`/stories/${story.id}`}>
-          <StoryListCard>
-            <StoryCoverImage src={story.coverImage} alt={story.title} />
-            <StoryTitle>{story.title}</StoryTitle>
-            <StoryCreationDate>{story.dateCreated}</StoryCreationDate>
-          </StoryListCard>
-        </Link>
-      ))}
-    </StoryListContainer>
+      <AddStoryLink href="/CreateStory">Write a new Story</AddStoryLink>
+      <StoryListContainer>
+        {stories.map((story) => (
+          <StyledListItem key={story.id}>
+            <StyledLink href={`/stories/${story.id}`}>
+              <StoryListCard>
+                <StoryCoverImage src={story.coverImage} alt={story.title} />
+                <StoryTitle>{story.title}</StoryTitle>
+                <StoryCreationDate>{story.dateCreated}</StoryCreationDate>
+              </StoryListCard>
+            </StyledLink>
+          </StyledListItem>
+        ))}
+      </StoryListContainer>
+    </>
   );
 }
 

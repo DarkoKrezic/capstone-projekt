@@ -12,8 +12,10 @@ export default createGlobalStyle`
     font-family: system-ui;
   }
 `;
-const primaryColor = "#0C1726";
-const secondaryColor = "#F2CF63";
-const tertiaryColor = "#D9965B";
-const quaternaryColor = "#8C441B";
-const quintaryColor = "#D94141";
+export const primaryColor = "#0C1726";
+export const secondaryColor = "#F2CF63";
+export const tertiaryColor = "#D9965B";
+export const quaternaryColor = "#8C441B";
+export const quintaryColor = "#D94141";
+export const headerImage = "/images/überschriftrolle.png";
+export const ListBackgroundImage = "/images/Schriftrolle.png";
