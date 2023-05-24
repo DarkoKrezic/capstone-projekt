@@ -1,45 +1,20 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import styled from "styled-components";
 import { Form } from "../NewStoryForm/StyledNewStoryForm";
-import { ListBackgroundImage } from "@/styles";
+import {
+  FormContainer,
+  Description,
+  TextArea,
+  Button,
+} from "./StyledUseStorytellerForm";
+import { v4 as uuidv4 } from "uuid";
+import { Configuration, OpenAIApi } from "openai";
 
-export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: center;
-  gap: 1rem;
-  background-image: url(${ListBackgroundImage});
-  background-size: cover;
-  background-position: center;
-  background-size: 100% 115%;
-  background-repeat: no-repeat;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-`;
-
-const Description = styled.p`
-  margin-bottom: 1rem;
-`;
-
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 200px;
-  resize: vertical;
-`;
-
-const Button = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-`;
+const configuration = new Configuration({
+  organization: "org-KWKX4sUxoLRs3G6H2PQOR6oN",
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 export default function UseStorytellerForm() {
   const [prompt, setPrompt] = useState("");
@@ -49,11 +24,74 @@ export default function UseStorytellerForm() {
     setPrompt(event.target.value);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    // her we are going to send the prompt to the GPT API and create a new story using the response
-    router.push("/"); // for now we are going to redirect to the home page
+    const storyObjectPrompt = {
+      prompt: `You are a storyteller. Tell a story for children. The response should be a Json object, with the following properties: title: "here comes the generated Title", textContent: "here comes the generated Text", coverImagePrompt: "here comes the generated CoverImagePrompt" . Please use the following prompt: ${prompt}`,
+    };
+
+    // console.log("storyObjectPrompt:", storyObjectPrompt);
+    try {
+      const response = await fetch("https://api.openai.com/v1/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(storyObjectPrompt),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to create story object");
+      }
+      const generatedStory = await response.json();
+      //console.log("Generated Story:", generatedStory);
+
+      const { title, textContent, coverImagePrompt } = generatedStory;
+
+      // Generate the cover image using DALL·E API
+      const coverImage = await generateCoverImage(coverImagePrompt);
+
+      // Update the generatedStory with the cover image URL
+      generatedStory.coverImage = coverImage;
+
+      const newStory = {
+        id: uuidv4(),
+        title: title,
+        coverImage: coverImage,
+        textContent: textContent,
+        dateCreated: new Date().toLocaleDateString(),
+      };
+
+      router.push(`/stories/${newStory.id}/EditStory`);
+    } catch (error) {
+      console.error(error);
+    }
   }
+  // async function generateCoverImage(coverImagePrompt) {
+  //   try {
+  //     const response = await fetch(
+  //       "https://api.openai.com/v1/images/generations",
+  //       {
+  //         method: "POST",
+  //         body: JSON.stringify({ prompt: coverImagePrompt, n: 1, size: "512" }),
+  //         headers: {
+  //           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+
+  //     if (!response.ok) {
+  //       throw new Error("Failed to generate the cover image");
+  //     }
+
+  //     const { image_url } = await response.json();
+  //     return image_url;
+  //   } catch (error) {
+  //     console.error(error);
+  //     return null;
+  //   }
+  // }
 
   return (
     <>

@@ -22,8 +22,8 @@ export default function StoryDetailCard({ story, deleteStory }) {
       <Image
         src={story.coverImage}
         alt={story.title}
-        width={400}
-        height={400}
+        width={300}
+        height={300}
       />
       <TextContainer>
         <StoryText>{story.textContent}</StoryText>
