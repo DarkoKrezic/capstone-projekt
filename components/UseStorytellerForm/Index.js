@@ -33,16 +33,9 @@ export default function UseStorytellerForm() {
       if (!response.ok) {
         throw new Error("Failed to create story object");
       }
-      const generatedStory = await response.json();
-      console.log(generatedStory);
-
       const { title, textContent, coverImagePrompt } = generatedStory;
 
-      // Generate the cover image using DALL·E API
       const coverImage = await generateCoverImage(coverImagePrompt);
-
-      // Update the generatedStory with the cover image URL
-      generatedStory.coverImage = coverImage;
 
       const newStory = {
         id: uuidv4(),
