@@ -8,13 +8,6 @@ import {
   Button,
 } from "./StyledUseStorytellerForm";
 import { v4 as uuidv4 } from "uuid";
-import { Configuration, OpenAIApi } from "openai";
-
-const configuration = new Configuration({
-  organization: "org-KWKX4sUxoLRs3G6H2PQOR6oN",
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
 
 export default function UseStorytellerForm() {
   const [prompt, setPrompt] = useState("");
@@ -29,13 +22,10 @@ export default function UseStorytellerForm() {
     const storyObjectPrompt = {
       prompt: `You are a storyteller. Tell a story for children. The response should be a Json object, with the following properties: title: "here comes the generated Title", textContent: "here comes the generated Text", coverImagePrompt: "here comes the generated CoverImagePrompt" . Please use the following prompt: ${prompt}`,
     };
-
-    // console.log("storyObjectPrompt:", storyObjectPrompt);
     try {
-      const response = await fetch("https://api.openai.com/v1/completions", {
+      const response = await fetch("/api/GeneratedStory", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(storyObjectPrompt),
@@ -44,7 +34,7 @@ export default function UseStorytellerForm() {
         throw new Error("Failed to create story object");
       }
       const generatedStory = await response.json();
-      //console.log("Generated Story:", generatedStory);
+      console.log(generatedStory);
 
       const { title, textContent, coverImagePrompt } = generatedStory;
 
@@ -67,31 +57,6 @@ export default function UseStorytellerForm() {
       console.error(error);
     }
   }
-  // async function generateCoverImage(coverImagePrompt) {
-  //   try {
-  //     const response = await fetch(
-  //       "https://api.openai.com/v1/images/generations",
-  //       {
-  //         method: "POST",
-  //         body: JSON.stringify({ prompt: coverImagePrompt, n: 1, size: "512" }),
-  //         headers: {
-  //           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error("Failed to generate the cover image");
-  //     }
-
-  //     const { image_url } = await response.json();
-  //     return image_url;
-  //   } catch (error) {
-  //     console.error(error);
-  //     return null;
-  //   }
-  // }
 
   return (
     <>
