@@ -33,9 +33,9 @@ export default function UseStorytellerForm() {
       if (!response.ok) {
         throw new Error("Failed to create story object");
       }
-      const { title, textContent, coverImagePrompt } = generatedStory;
+      // const { title, textContent, coverImagePrompt } = generatedStory;
 
-      const coverImage = await generateCoverImage(coverImagePrompt);
+      // const coverImage = await generateCoverImage(coverImagePrompt);
 
       const newStory = {
         id: uuidv4(),

@@ -7,12 +7,17 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 async function generateCoverImage(coverImagePrompt) {
+  //   console.log(coverImagePrompt);
   try {
     const response = await fetch(
       "https://api.openai.com/v1/images/generations",
       {
         method: "POST",
-        body: JSON.stringify({ prompt: coverImagePrompt, n: 1, size: "512" }),
+        body: JSON.stringify({
+          prompt: coverImagePrompt,
+          n: 1,
+          size: "512x512",
+        }),
         headers: {
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
           "Content-Type": "application/json",
@@ -46,13 +51,14 @@ export default async function handler(req, res) {
     );
     const generatedStory = JSON.parse(jsonString);
     console.log("Generated Story:", generatedStory);
-    const { title, textContent, coverImagePrompt } = generatedStory;
+    // const { title, textContent, coverImagePrompt } = generatedStory;
 
     const coverImage = await generateCoverImage(
       generatedStory.coverImagePrompt
     );
 
     res.status(200).json({ story: generatedStory, coverImage });
+    console.log(generatedStory, coverImage);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to generate story" });
