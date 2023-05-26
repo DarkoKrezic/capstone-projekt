@@ -1,4 +1,5 @@
 import { Configuration, OpenAIApi } from "openai";
+import { v4 as uuidv4 } from "uuid";
 
 const configuration = new Configuration({
   organization: "org-KWKX4sUxoLRs3G6H2PQOR6oN",
@@ -29,13 +30,39 @@ async function generateCoverImage(coverImagePrompt) {
       throw new Error("Failed to generate the cover image");
     }
     const data = await response.json();
-    // return image_url;
-    console.log(data);
+    const imageUrl = data.data[0]?.url;
+    return imageUrl;
   } catch (error) {
     console.error(error);
     return null;
   }
 }
+async function uploadImageToCloudinary(imageUrl) {
+  const formData = new FormData();
+  formData.append("file", imageUrl);
+  formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+
+  try {
+    const response = await fetch(
+      `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to upload image to Cloudinary");
+    }
+
+    const data = await response.json();
+    return data.secure_url;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export default async function handler(req, res) {
   try {
     const { prompt } = req.body;
@@ -51,14 +78,25 @@ export default async function handler(req, res) {
     );
     const generatedStory = JSON.parse(jsonString);
     console.log("Generated Story:", generatedStory);
-    // const { title, textContent, coverImagePrompt } = generatedStory;
 
     const coverImage = await generateCoverImage(
       generatedStory.coverImagePrompt
     );
+    console.log(coverImage);
 
-    res.status(200).json({ story: generatedStory, coverImage });
-    console.log(generatedStory, coverImage);
+    const uploadedImageUrl = await uploadImageToCloudinary(coverImage);
+    console.log(uploadedImageUrl);
+
+    const newStory = {
+      id: uuidv4(),
+      title: generatedStory.title,
+      coverImage: uploadedImageUrl,
+      textContent: generatedStory.textContent,
+      dateCreated: new Date().toLocaleDateString(),
+    };
+
+    res.status(200).json(newStory);
+    console.log(newStory);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to generate story" });

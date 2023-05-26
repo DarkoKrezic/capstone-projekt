@@ -40,8 +40,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       );
 
       const json = await response.json();
-      // const storiesFromLocalStorage =
-      //   JSON.parse(localStorage.getItem("stories")) || [];
       const newStory = {
         id: uuidv4(),
         title: title,
