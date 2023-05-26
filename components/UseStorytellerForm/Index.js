@@ -7,9 +7,12 @@ import {
   TextArea,
   Button,
 } from "./StyledUseStorytellerForm";
+import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 
 export default function UseStorytellerForm() {
   const [prompt, setPrompt] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [stories, setStories] = useImmerLocalStorageState("stories", []);
   const router = useRouter();
 
   function handlePromptChange(event) {
@@ -22,6 +25,7 @@ export default function UseStorytellerForm() {
       prompt: `You are a storyteller. Tell a story for children. The response should be a Json object, with the following properties: title: "here comes the generated Title", textContent: "here comes the generated Text", coverImagePrompt: "here comes the generated CoverImagePrompt with :children book style at the end " . Please use the following prompt: ${prompt}`,
     };
     try {
+      setIsLoading(true);
       const response = await fetch("/api/GeneratedStory", {
         method: "POST",
         headers: {
@@ -32,10 +36,17 @@ export default function UseStorytellerForm() {
       if (!response.ok) {
         throw new Error("Failed to create story object");
       }
+      const newGeneratedStory = await response.json();
+      console.log(newGeneratedStory);
+      setStories((draft) => {
+        draft.push(newGeneratedStory); // Using the immer syntax to update the stories state
+      });
+      setIsLoading(false);
 
-      router.push(`/stories/${newStory.id}/EditStory`);
+      router.push(`/stories/${newGeneratedStory.id}/EditStory`);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   }
 
@@ -51,7 +62,9 @@ export default function UseStorytellerForm() {
             onChange={handlePromptChange}
             placeholder="Write your story prompt here..."
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? "Submitting..." : "Submit"}
+          </Button>
         </Form>
       </FormContainer>
     </>
