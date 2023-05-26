@@ -22,7 +22,7 @@ export default function UseStorytellerForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     const storyObjectPrompt = {
-      prompt: `You are a storyteller. Tell a story for children. The response should be a Json object, with the following properties: title: "here comes the generated Title", textContent: "here comes the generated Text", coverImagePrompt: "here comes the generated CoverImagePrompt with :children book style at the end " . Please use the following prompt: ${prompt}`,
+      prompt: `You are a storyteller. Tell a story for children. The response should be a Json object, with the following properties: title: "here comes the generated Title", textContent: "here comes the generated Story.The story should be about: ${prompt}", coverImagePrompt: "here comes the generated CoverImagePrompt with :children book style at the end "`,
     };
     try {
       setIsLoading(true);
