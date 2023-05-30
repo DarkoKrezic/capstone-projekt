@@ -1,7 +1,18 @@
 {
-  "functions": {
-    "timeout": {
-      "default": 60
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/GeneratedStory.js",
+      "use": "@vercel/node"
     }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    }
+  ],
+  "functions": {
+    "timeout": 60
   }
 }
