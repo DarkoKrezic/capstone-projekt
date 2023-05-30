@@ -8,7 +8,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 async function generateCoverImage(coverImagePrompt) {
-  //   console.log(coverImagePrompt);
   try {
     const response = await fetch(
       "https://api.openai.com/v1/images/generations",
@@ -69,23 +68,21 @@ export default async function handler(req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: prompt,
-      max_tokens: 700,
-      temperature: 0,
+      max_tokens: 1000,
+      temperature: 0.5,
     });
     const jsonString = completion.data.choices[0].text.replace(
       /(\w+):/g,
       '"$1":'
     );
-    const generatedStory = JSON.parse(jsonString);
-    console.log("Generated Story:", generatedStory);
+    const formattedJsonString = jsonString.replace(/(\r\n|\n|\r)/gm, "");
+    const generatedStory = JSON.parse(formattedJsonString);
 
     const coverImage = await generateCoverImage(
       generatedStory.coverImagePrompt
     );
-    console.log(coverImage);
 
     const uploadedImageUrl = await uploadImageToCloudinary(coverImage);
-    console.log(uploadedImageUrl);
 
     const newStory = {
       id: uuidv4(),
@@ -96,7 +93,6 @@ export default async function handler(req, res) {
     };
 
     res.status(200).json(newStory);
-    console.log(newStory);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to generate story" });

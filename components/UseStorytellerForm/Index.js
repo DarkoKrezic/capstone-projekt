@@ -13,16 +13,22 @@ export default function UseStorytellerForm() {
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [stories, setStories] = useImmerLocalStorageState("stories", []);
+  const [error, setError] = useState(null);
   const router = useRouter();
 
   function handlePromptChange(event) {
     setPrompt(event.target.value);
+    setError(null);
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (!prompt) {
+      setError("Please enter a prompt for the story.");
+      return;
+    }
     const storyObjectPrompt = {
-      prompt: `You are a storyteller. Tell a story for children. The response should be a Json object, with the following properties: title: "here comes the generated Title", textContent: "here you should write the short story text(max 300 words) using this prompt as brief description: ${prompt}", coverImagePrompt: "here comes the generated CoverImagePrompt with :children book style at the end "`,
+      prompt: `Tell a story for children. The response should be a JSON object, with the following properties: title: write here the title of the story, textContent: write the story text (max 400 words) using this following prompt as brief description: ${prompt}, coverImagePrompt: write the CoverImagePrompt that describes the story and add children book style at the end so we use that style to generate our image `,
     };
     try {
       setIsLoading(true);
@@ -37,9 +43,8 @@ export default function UseStorytellerForm() {
         throw new Error("Failed to create story object");
       }
       const newGeneratedStory = await response.json();
-      console.log(newGeneratedStory);
       setStories((draft) => {
-        draft.push(newGeneratedStory); // Using the immer syntax to update the stories state
+        draft.push(newGeneratedStory);
       });
       setIsLoading(false);
 
@@ -63,7 +68,7 @@ export default function UseStorytellerForm() {
             placeholder="Write your story prompt here..."
           />
           <Button type="submit" disabled={isLoading}>
-            {isLoading ? "Submitting..." : "Submit"}
+            {isLoading ? "Writing your story..." : "Write the story"}
           </Button>
         </Form>
       </FormContainer>
