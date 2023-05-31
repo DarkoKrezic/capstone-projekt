@@ -7,7 +7,7 @@ export const CardContainer = styled.main`
   align-items: center;
 `;
 export const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   background-image: url(${headerImage});
   background-size: cover;
@@ -23,7 +23,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  max-height: 35vh;
+  max-height: 20vh;
   width: 90%;
   overflow: scroll;
 `;

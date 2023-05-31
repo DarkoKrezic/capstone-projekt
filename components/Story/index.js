@@ -15,7 +15,12 @@ import {
 
 export default function StoryDetailCard({ story, deleteStory }) {
   function handleDeleteClick() {
-    deleteStory(story.id);
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this story?"
+    );
+    if (confirmDelete) {
+      deleteStory(story.id);
+    }
   }
   return (
     <CardContainer>
@@ -36,8 +41,8 @@ export default function StoryDetailCard({ story, deleteStory }) {
       <Image
         src={story.coverImage}
         alt={story.title}
-        width={300}
-        height={300}
+        width={280}
+        height={280}
       />
       <TextContainer>
         <StoryText>{story.textContent}</StoryText>
