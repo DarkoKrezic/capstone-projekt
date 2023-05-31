@@ -1,58 +1,58 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import styled from "styled-components";
 import { Form } from "../NewStoryForm/StyledNewStoryForm";
-import { ListBackgroundImage } from "@/styles";
-
-export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: center;
-  gap: 1rem;
-  background-image: url(${ListBackgroundImage});
-  background-size: cover;
-  background-position: center;
-  background-size: 100% 115%;
-  background-repeat: no-repeat;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-`;
-
-const Description = styled.p`
-  margin-bottom: 1rem;
-`;
-
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 200px;
-  resize: vertical;
-`;
-
-const Button = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-`;
+import {
+  FormContainer,
+  Description,
+  TextArea,
+  Button,
+} from "./StyledUseStorytellerForm";
+import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 
 export default function UseStorytellerForm() {
   const [prompt, setPrompt] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [stories, setStories] = useImmerLocalStorageState("stories", []);
+  const [error, setError] = useState(null);
   const router = useRouter();
 
   function handlePromptChange(event) {
     setPrompt(event.target.value);
+    setError(null);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    // her we are going to send the prompt to the GPT API and create a new story using the response
-    router.push("/"); // for now we are going to redirect to the home page
+    if (!prompt) {
+      setError("Please enter a prompt for the story.");
+      return;
+    }
+    const storyObjectPrompt = {
+      prompt: `Tell a story for children. The response should be a JSON object, with the following properties: title: write here the title of the story, textContent: write the story text (max 400 words) using this following prompt as brief description: ${prompt}, coverImagePrompt: write the CoverImagePrompt that describes the story and add children book style at the end so we use that style to generate our image `,
+    };
+    try {
+      setIsLoading(true);
+      const response = await fetch("/api/GeneratedStory", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(storyObjectPrompt),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to create story object");
+      }
+      const newGeneratedStory = await response.json();
+      setStories((draft) => {
+        draft.push(newGeneratedStory);
+      });
+      setIsLoading(false);
+
+      router.push(`/stories/${newGeneratedStory.id}/EditStory`);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -67,7 +67,9 @@ export default function UseStorytellerForm() {
             onChange={handlePromptChange}
             placeholder="Write your story prompt here..."
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? "Writing your story..." : "Write the story"}
+          </Button>
         </Form>
       </FormContainer>
     </>

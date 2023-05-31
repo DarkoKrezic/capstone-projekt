@@ -17,7 +17,7 @@ export const Title = styled.h1`
 `;
 
 export const TextContainer = styled.div`
-  max-height: 300px;
+  max-height: 35vh;
   width: 90%;
   overflow: scroll;
 `;
