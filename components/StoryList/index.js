@@ -1,4 +1,3 @@
-// import Link from "next/link";
 import {
   Header,
   StoryListContainer,
@@ -21,7 +20,7 @@ function StoryList() {
   return (
     <>
       <Header>My Stories</Header>
-      <AddStoryLink href="/CreateStory">Write a new Story</AddStoryLink>
+      <AddStoryLink href="/CreateStory">🖋️ Write a new Story</AddStoryLink>
       <StoryListContainer>
         {stories.map((story) => (
           <StyledListItem key={story.id}>

@@ -18,13 +18,14 @@ export const AddStoryLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   background-image: url(${headerImage});
-  background-repeat: repeat no-repeat;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% 90%;
   box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
   font-size: 1rem;
   outline: none;
   padding: 1rem 2rem;
+
   text-decoration: none;
   transition: all 235ms ease-in-out;
 
@@ -38,26 +39,25 @@ export const AddStoryLink = styled(Link)`
   }
 `;
 export const StoryListContainer = styled.ul`
-  display: flex;
-  flex-direction: column;
+  list-style: none;
+  max-height: 73vh;
+  overflow: scroll;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
   gap: 1rem;
-  background-image: url(${ListBackgroundImage});
-  background-size: cover;
-  background-position: center;
-  background-size: 100% 115%;
-  background-repeat: no-repeat;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding: 0;
 `;
 
 export const StoryListCard = styled.div`
   display: flex;
-  padding: 1rem;
-  width: 70%;
-  margin: 0 auto;
+  padding: 0.5rem;
+  width: 100%;
+  margin: auto;
+  background-image: url(${headerImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1rem 2.8rem;
 
   &:hover {
     cursor: pointer;
@@ -65,10 +65,10 @@ export const StoryListCard = styled.div`
   }
 `;
 
-export const StoryTitle = styled.h2`
-  width: 100%;
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem;
+export const StoryTitle = styled.p`
+  width: 50%;
+  font-size: 1rem;
+  margin: 0.5rem 0.5rem 0.5rem;
 `;
 
 export const StoryCoverImage = styled.img`
@@ -80,7 +80,7 @@ export const StoryCoverImage = styled.img`
 export const StoryCreationDate = styled.p`
   align-self: self-end;
   font-size: 0.8rem;
-  color: #666;
+  color: #fff;
   margin: 0;
 `;
 export const StyledLink = styled(Link)`

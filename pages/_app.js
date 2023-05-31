@@ -1,7 +1,7 @@
 import GlobalStyle from "../styles";
 import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 import initialStories from "@/db.js";
-
+import Layout from "@/Layout";
 export default function App({ Component, pageProps }) {
   const [stories, setStories] = useImmerLocalStorageState("stories", {
     defaultValue: initialStories,
@@ -26,14 +26,16 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        stories={stories}
-        addStory={addStory}
-        updateStory={updateStory}
-        setStories={setStories}
-        deleteStory={deleteStory}
-      />
+      <Layout>
+        <Component
+          {...pageProps}
+          stories={stories}
+          addStory={addStory}
+          updateStory={updateStory}
+          setStories={setStories}
+          deleteStory={deleteStory}
+        />
+      </Layout>
     </>
   );
 }

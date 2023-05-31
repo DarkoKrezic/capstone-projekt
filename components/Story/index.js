@@ -10,6 +10,7 @@ import {
   CreationDate,
   EditButton,
   DeleteButton,
+  ButtonContainer,
 } from "./StyledStory";
 
 export default function StoryDetailCard({ story, deleteStory }) {
@@ -19,6 +20,19 @@ export default function StoryDetailCard({ story, deleteStory }) {
   return (
     <CardContainer>
       <Title>{story.title}</Title>
+      <ButtonContainer>
+        <Link href="/">
+          <BackButton type="button"> 🔙 Back to My Stories</BackButton>
+        </Link>
+        <Link href={`/stories/${story.id}/EditStory`}>
+          <EditButton type="button">✂️ Edit story</EditButton>
+        </Link>
+        <Link href={"/"}>
+          <DeleteButton type="button" onClick={handleDeleteClick}>
+            🗑️ Delete story
+          </DeleteButton>
+        </Link>
+      </ButtonContainer>
       <Image
         src={story.coverImage}
         alt={story.title}
@@ -29,17 +43,6 @@ export default function StoryDetailCard({ story, deleteStory }) {
         <StoryText>{story.textContent}</StoryText>
       </TextContainer>
       <CreationDate>Erstellt am :{story.dateCreated} </CreationDate>
-      <Link href="/">
-        <BackButton type="button">Back to My Stories</BackButton>
-      </Link>
-      <Link href={`/stories/${story.id}/EditStory`}>
-        <EditButton type="button">Edit story</EditButton>
-      </Link>
-      <Link href={"/"}>
-        <DeleteButton type="button" onClick={handleDeleteClick}>
-          Delete story
-        </DeleteButton>
-      </Link>
     </CardContainer>
   );
 }

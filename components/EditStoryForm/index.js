@@ -113,7 +113,7 @@ export default function EditStoryForm({ story, onUpdate }) {
       />
 
       <Button type="submit" aria-label="Save your story">
-        {isUploading ? "Saving …" : "Save"}
+        {isUploading ? "💾 Saving …" : "💾 Save"}
       </Button>
     </Form>
   );

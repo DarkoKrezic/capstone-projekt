@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { headerImage } from "@/styles";
+
 export const CardContainer = styled.main`
   display: flex;
   flex-direction: column;
@@ -15,6 +16,11 @@ export const Title = styled.h1`
   background-repeat: no-repeat;
   padding: 2rem 3rem;
 `;
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  /* margin-top: 1rem; */
+`;
 
 export const TextContainer = styled.div`
   max-height: 35vh;
@@ -22,7 +28,7 @@ export const TextContainer = styled.div`
   overflow: scroll;
 `;
 export const StoryText = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 export const BackButton = styled.button`

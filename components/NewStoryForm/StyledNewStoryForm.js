@@ -17,7 +17,7 @@ export const TextArea = styled.textarea`
   padding: 0.5rem;
   font-size: 1rem;
   width: 90%;
-  height: 50vh;
+  height: 30vh;
   resize: true;
 `;
 

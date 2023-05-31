@@ -5,7 +5,7 @@ import styled from "styled-components";
 export default function StorytellerPage() {
   return (
     <>
-      <Header>Storyteller Page</Header>
+      <Header>🪄 Storyteller Page</Header>
       <UseStorytellerForm />
     </>
   );
