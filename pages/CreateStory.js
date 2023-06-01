@@ -5,14 +5,14 @@ import { Header } from "@/components/StoryList/StyledStoryList";
 import Link from "next/link";
 import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const UseStorytellerLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   background-image: url(${headerImage});
-  background-repeat: repeat no-repeat;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 90% 100%;
   box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
   font-size: 1rem;
@@ -50,6 +50,7 @@ export default function NewStoryPage({ addStory }) {
         🪄 Use Storyteller
       </UseStorytellerLink>
       <NewStoryForm onSubmit={handleStorySubmit} />
+
       <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
         <p>
           You can create your own story here, or just let the storyteller do it

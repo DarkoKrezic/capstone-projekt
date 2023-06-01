@@ -17,15 +17,16 @@ const ModalContent = styled.div`
   background-color: white;
   padding: 2rem;
   border-radius: 4px;
+  font-size: 1.5rem;
 `;
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 0.5rem;
+  top: 16.5rem;
   right: 0.5rem;
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 `;
 
