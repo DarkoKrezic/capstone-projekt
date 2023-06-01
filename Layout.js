@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { secondaryColor } from "./styles";
 import localFont from "next/font/local";
 
-const amaticFont = localFont({ src: "./fonts/AmaticSC-Regular.ttf" });
+const amaticFont = localFont({ src: "./fonts/AmaticSC-Bold.ttf" });
 
 const LayoutContainer = styled.main`
   min-height: 100vh;

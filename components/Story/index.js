@@ -27,14 +27,14 @@ export default function StoryDetailCard({ story, deleteStory }) {
       <Title>{story.title}</Title>
       <ButtonContainer>
         <Link href="/">
-          <BackButton type="button"> 🔙 Back to My Stories</BackButton>
+          <BackButton type="button"> 🔙 to My Stories</BackButton>
         </Link>
         <Link href={`/stories/${story.id}/EditStory`}>
-          <EditButton type="button">✂️ Edit story</EditButton>
+          <EditButton type="button">✂️ Edit</EditButton>
         </Link>
         <Link href={"/"}>
           <DeleteButton type="button" onClick={handleDeleteClick}>
-            🗑️ Delete story
+            🗑️ Delete
           </DeleteButton>
         </Link>
       </ButtonContainer>
