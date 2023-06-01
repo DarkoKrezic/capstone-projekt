@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { headerImage, ListBackgroundImage } from "@/styles";
+import { headerImage } from "@/styles";
 import Link from "next/link";
 
 export const Header = styled.h1`
   font-size: 1.5rem;
   text-align: center;
   background-image: url(${headerImage});
-  /* background-size: cover; */
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
