@@ -4,27 +4,27 @@ import { ListBackgroundImage } from "@/styles";
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   align-content: center;
   gap: 1rem;
   background-image: url(${ListBackgroundImage});
-  background-size: cover;
   background-position: center;
   background-size: 100% 115%;
   background-repeat: no-repeat;
   padding-top: 6rem;
   padding-bottom: 6rem;
+  max-height: 70vh;
 `;
 
 export const Description = styled.p`
-  margin-bottom: 1rem;
-  padding: 1rem 3rem;
+  margin: 0 1rem;
+  padding: 0 3rem;
 `;
 
 export const TextArea = styled.textarea`
-  width: 90%;
-  height: 200px;
+  width: 80%;
+  height: 100px;
   resize: vertical;
 `;
 

@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { headerImage } from "@/styles";
+
 export const CardContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 export const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   background-image: url(${headerImage});
   background-size: cover;
@@ -15,14 +16,19 @@ export const Title = styled.h1`
   background-repeat: no-repeat;
   padding: 2rem 3rem;
 `;
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  /* margin-top: 1rem; */
+`;
 
 export const TextContainer = styled.div`
-  max-height: 35vh;
+  max-height: 20vh;
   width: 90%;
   overflow: scroll;
 `;
 export const StoryText = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 export const BackButton = styled.button`

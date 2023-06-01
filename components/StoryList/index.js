@@ -1,4 +1,3 @@
-// import Link from "next/link";
 import {
   Header,
   StoryListContainer,
@@ -17,11 +16,11 @@ function StoryList() {
   if (!stories || stories.length === 0) {
     return <p>Loading stories...</p>;
   }
-
+  console.log(stories);
   return (
     <>
       <Header>My Stories</Header>
-      <AddStoryLink href="/CreateStory">Write a new Story</AddStoryLink>
+      <AddStoryLink href="/CreateStory">🖋️ Write a new Story</AddStoryLink>
       <StoryListContainer>
         {stories.map((story) => (
           <StyledListItem key={story.id}>
