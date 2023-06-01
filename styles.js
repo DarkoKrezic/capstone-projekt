@@ -6,11 +6,6 @@ export default createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
-  /* @font-face {
-    font-family: "Amatic SC";
-    src: url("./Fonts/AmaticSC-Regular.ttf") format("truetype");
-  }; */
-  
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen";

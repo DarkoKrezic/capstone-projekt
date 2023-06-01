@@ -3,10 +3,10 @@ import { headerImage, ListBackgroundImage } from "@/styles";
 import Link from "next/link";
 
 export const Header = styled.h1`
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   background-image: url(${headerImage});
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;

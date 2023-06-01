@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { secondaryColor } from "./styles";
+import localFont from "next/font/local";
+
+const amaticFont = localFont({ src: "./fonts/AmaticSC-Regular.ttf" });
 
 const LayoutContainer = styled.main`
   min-height: 100vh;
@@ -15,7 +18,7 @@ const ContentContainer = styled.div`
 
 const Layout = ({ children }) => {
   return (
-    <LayoutContainer>
+    <LayoutContainer className={amaticFont.className}>
       <ContentContainer>{children}</ContentContainer>
     </LayoutContainer>
   );

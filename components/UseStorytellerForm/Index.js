@@ -68,7 +68,9 @@ export default function UseStorytellerForm() {
             placeholder="Write your story prompt here..."
           />
           <Button type="submit" disabled={isLoading}>
-            {isLoading ? "Writing your story..." : "Write the story"}
+            {isLoading
+              ? "Writing your story...This could take some time.If you're not being redirected to the next page, please try again."
+              : "Write the story"}
           </Button>
         </Form>
       </FormContainer>

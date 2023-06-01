@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { Header } from "@/components/StoryList/StyledStoryList";
 import Link from "next/link";
 import { headerImage } from "@/styles";
+import PopupModal from "@/components/PopUpModal";
+import React, { useState } from "react";
 
 const UseStorytellerLink = styled(Link)`
   text-decoration: none;
@@ -31,9 +33,14 @@ const UseStorytellerLink = styled(Link)`
 
 export default function NewStoryPage({ addStory }) {
   const router = useRouter();
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
+
   function handleStorySubmit(newStory) {
     addStory(newStory);
     router.push("/");
+  }
+  function handlePopupClose() {
+    setIsPopupOpen(false);
   }
 
   return (
@@ -43,6 +50,12 @@ export default function NewStoryPage({ addStory }) {
         🪄 Use Storyteller
       </UseStorytellerLink>
       <NewStoryForm onSubmit={handleStorySubmit} />
+      <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
+        <p>
+          You can create your own story here, or just let the storyteller do it
+          for you! To do so just click the 🪄 Use Storyteller button above.
+        </p>
+      </PopupModal>
     </>
   );
 }

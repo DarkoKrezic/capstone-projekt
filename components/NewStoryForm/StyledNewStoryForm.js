@@ -16,13 +16,12 @@ export const TextArea = styled.textarea`
   margin-bottom: 1rem;
   padding: 0.5rem;
   font-size: 1rem;
-  width: 90%;
+  width: 100%;
   height: 30vh;
   resize: true;
 `;
 
 export const Button = styled.button`
-  margin-top: 1rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: #333;
