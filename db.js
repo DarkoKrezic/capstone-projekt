@@ -1,35 +1,39 @@
 const initialStories = [
   {
-    id: "1",
-    title: "Hanni und Hasi",
+    id: "fc37d039-a335-43e3-9177-f37080297b2b",
+    title: "The Little Cow Who Wanted to Fly",
     textContent:
-      "Hanni liebte ihren Kuschelhasen Hasi über alles. Eines sonnigen Tages beschloss sie, mit ihm in den Park zu gehen. Als sie im Park ankamen, sah Hanni, dass ihre Freunde dort spielten. Sie rannte zu ihnen und stellte Hasi vor. 'Hasi möchte gerne mitspielen', sagte Hanni. Ihre Freunde waren begeistert und bald spielten sie alle zusammen. Sie rannten, lachten und hatten eine Menge Spaß. Doch dann fiel Hanni auf, dass ihr kleiner Bruder, der ebenfalls im Park war, alleine auf einer Bank saß und weinte. Sie rannte zu ihm und fragte, was los war. Ihr Bruder hatte sein Spielzeug verloren und war traurig. Hanni dachte einen Moment nach und sagte dann: 'Ich habe eine Idee. Wie wäre es, wenn wir das Spielzeug teilen und gemeinsam spielen?' Ihr Bruder lächelte und sie gingen zurück zu den anderen Kindern. Hanni erklärte die Situation und bald spielten alle zusammen mit dem Spielzeug. Als es Zeit war, nach Hause zu gehen, sagte einer von Hannis Freunden: 'Danke, dass du uns das Teilen beigebracht hast. Wir hatten eine großartige Zeit!' Hanni lächelte und Hasi knuddelte sie. Sie war glücklich, dass sie eine gute Zeit hatte und ihren Freunden das Teilen beibringen konnte.",
-    coverImage: "/images/hanni-und-hasi-im-park.png",
-    dateCreated: "01.05.2023",
+      "Once upon a time, there was a little cow named Daisy. She was a curious cow, always looking for new adventures. One day, Daisy decided she wanted to fly. She asked all the other animals in the meadow if they could help her, but none of them could. So Daisy decided to take matters into her own hooves. She gathered some sticks and leaves and made a pair of wings. She tied them to her back and jumped off a hill. Daisy flapped her wings and flew higher and higher. She flew over the meadow, the river, and the forest. She even flew over the mountains. Daisy was so happy! She had achieved her dream of flying. But then, Daisy started to get tired. She flapped her wings harder and harder, but she couldn't stay in the air. She started to fall. Luckily, Daisy landed safely in the meadow. She was so proud of herself for trying. From that day on, Daisy never stopped dreaming of flying.",
+    coverImage:
+      "https://res.cloudinary.com/capstoneimages/image/upload/v1685440914/xnrkx0ilkypr4zuaomzi.png",
+    dateCreated: "5/30/2023",
   },
   {
-    id: "2",
-    title: "Hanni und Hasi: Das Teilen macht Freunde",
+    coverImage:
+      "https://res.cloudinary.com/capstoneimages/image/upload/v1685447934/kgm3ec2eqx5nk9fyk5za.png",
+    dateCreated: "5/30/2023",
+    id: "e7d7aff3-3705-4946-bcda-c9252154ec77",
     textContent:
-      'Hanni liebte ihr Kuscheltier Hasi über alles. Sie spielte jeden Tag mit ihm und nahm ihn überall hin mit. Eines Tages spielte Hanni mit ihren Freunden im Park, als einer ihrer Freunde, Max, auf sie zukam.\n\n"Hey Hanni, das ist ein tolles Kuscheltier. Darf ich auch damit spielen?" fragte Max.\n\nHanni dachte einen Moment nach und schließlich sagte sie: "Ja, aber nur wenn du es vorsichtig behandelst und es nicht verlierst."\n\nMax war begeistert und fing sofort an, mit Hasi zu spielen. Er war sehr vorsichtig und spielte gut mit ihm, aber Hanni konnte nicht aufhören, sich Sorgen zu machen, dass Hasi verloren gehen würde.\n\nPlötzlich kam ein starker Windstoß und Hasi flog aus Max\' Händen weg und landete in einem nahegelegenen Baum.\n\n"Oh nein, Hasi ist im Baum gefangen!" rief Hanni.\n\nMax und Hanni rannten zum Baum, aber sie konnten nicht hoch genug klettern, um Hasi zu erreichen. Max hatte jedoch eine Idee.\n\n"Ich werde schnell meine Leiter holen, die wir für die Baumhausbauaktion genutzt haben. Dann können wir Hasi zurückholen", sagte Max.\n\nAls Max mit der Leiter zurückkam, stellte er sie gegen den Baum und kletterte hinauf, um Hasi zu retten. Als er Hasi aus dem Baum rettete, fiel Hasi herunter und landete in Max\' Armen.\n\nHanni und Max gingen zurück zu den anderen Freunden und Hanni sagte: "Danke, dass du Hasi gerettet hast, Max. Ich war so besorgt, dass er verloren geht."\n\nMax lächelte und antwortete: "Kein Problem, Hanni. Es war toll, mit Hasi zu spielen. Vielleicht können wir ihn in Zukunft zusammen teilen?"\n\nHanni war begeistert und sagte: "Ja, das klingt toll! Ich bin froh, dass wir Freunde sind und teilen können."\n\nVon diesem Tag an teilten Hanni und Max Hasi und hatten eine Menge Spaß miteinander. Sie lernten, dass Teilen Freunde macht und dass es wichtig ist, aufeinander aufzupassen.',
-    coverImage: "/images/hanni-und-hasi-teilen-macht-freunde.png",
-    dateCreated: "02.05.2023",
+      "Once upon a time, there was a little monkey named Max. Max was always looking for something new and exciting to do. One day, he stumbled upon a mysterious blue banana. He had never seen a blue banana before and he was so curious! He decided to take the blue banana on an adventure. Max and the blue banana traveled all around the world. They went to the beach, the mountains, and even the jungle. Everywhere they went, people were amazed by the blue banana. Max was so proud of his new friend! One day, Max and the blue banana came across a magical river. Max was so excited to explore it, but the blue banana was scared. Max tried to encourage the blue banana to come with him, but the blue banana refused. Max was determined to explore the river, so he decided to go alone. He swam and swam until he reached the other side. When he got there, he was amazed by what he saw. There was a beautiful castle made of candy! Max was so excited that he forgot all about the blue banana. He explored the castle and ate all the candy he could find. Suddenly, he heard a voice. It was the blue banana! The blue banana had followed Max all the way to the castle. Max was so happy to see his friend again. They explored the castle together and had the best time ever. Max and the blue banana returned home with lots of stories to tell. They were the best of friends and they would never forget their amazing adventure.",
+    title: "The Blue Banana ",
   },
   {
-    id: "3",
-    title: "Hanni geht zur Schule",
+    coverImage:
+      "https://res.cloudinary.com/capstoneimages/image/upload/v1685627614/x1uimnsx8lnxpeqtnrih.png",
+    dateCreated: "6/1/2023",
+    id: "ed62a312-51c1-49a4-a9d8-1de5a4be364e",
     textContent:
-      "Hanni ist ein kleines Mädchen, das bald in die Schule kommen wird. Sie ist aufgeregt, aber auch ein bisschen ängstlich. Eines Tages fragte sie ihr Kuscheltier Hasi, was sie tun könnte, um ihre Angst zu überwinden. Hasi schlug vor, dass Hanni anfängt, ihre Schultasche zu packen und sich mit allem vertraut zu machen, was sie brauchen wird. Hanni fand das eine großartige Idee und begann sofort, ihre Schultasche zu packen. Sie füllte sie mit Stiften, Büchern und allem, was sie brauchte. Mit der Zeit wurde sie immer weniger ängstlich und immer mehr aufgeregt. Schließlich war der erste Schultag da. Hanni war immer noch ein wenig nervös, aber sie fühlte sich auch bereit. Sie packte ihre Schultasche und machte sich auf den Weg zur Schule. Als sie dort ankam, sah sie viele andere Kinder, die genauso aufgeregt wie sie waren. Aber Hanni war bereit. Sie hatte alles, was sie brauchte, und wusste, dass sie dank Hasi keine Angst mehr haben musste.",
-    coverImage: "/images/hanni-geht-zur-schule.png",
-    dateCreated: "03.05.2023",
+      "Once upon a time, there were three lions who lived in the Savannah. They were very curious creatures and wanted to know what it was like to be a horse. One day, they decided to try and make their dream come true. The first lion tried to stand on two legs, like a horse, but he couldn’t balance. The second lion tried to walk on all fours, like a horse, but he just couldn’t manage it. The third lion then had an idea. He said, “Why don’t we try to gallop like a horse?”The three lions started to gallop around the Savannah, but they soon realized that they weren’t very good at it. They were still lions, after all. They were too big and too heavy to be horses.The three lions stopped and looked at each other. They were a bit embarrassed, but they also realized that it was okay to be themselves. They were lions, not horses, and that was something to be proud of.So, the three lions went back to their pride and never tried to be horses again. They were happy to be lions and to live in the Savannah.",
+    title: "The Three Lions Who Wanted to Be Horses",
   },
   {
-    id: "4",
-    title: "Zahlen lernen mit Hanni und Kuscheltier Hasi",
+    coverImage:
+      "https://res.cloudinary.com/capstoneimages/image/upload/v1685695147/dha9gzllre9dbd9krq26.png",
+    dateCreated: "6/2/2023",
+    id: "ea9c840d-de9a-478f-b12b-d35e84f4a66f",
     textContent:
-      'Hanni und Hasi saßen im Kinderzimmer und spielten mit Bauklötzen. Hanni hatte eine Idee: "Lass uns Zahlen lernen, Hasi! Ich zeige dir, wie man bis zehn zählt." Hasi war begeistert und sagte: "Ja, das klingt toll! Ich kann es kaum erwarten, zu lernen, wie man bis zehn zählt." Hanni nahm den ersten Block und zeigte auf ihn: "Eins", sagte sie. Dann nahm sie den nächsten Block und zeigte auf ihn: "Zwei!" Hasi folgte aufmerksam Hannis Anweisungen und lernte schnell, wie man bis zehn zählt. Nach einer Weile waren sie beide so gut darin, dass sie sogar zurückzählen konnten. "Das war toll, Hanni", sagte Hasi. "Ich bin so froh, dass du mir gezeigt hast, wie man bis zehn zählt." Hanni lächelte und sagte: "Ich auch, Hasi. Das war ein lustiger Weg, um zu lernen."',
-    coverImage: "/images/hanni-lernt-zahlen.png",
-    dateCreated: "04.05.2023",
+      "Once upon a time, there was a young girl named Hannah. Hannah was brave and adventurous, and she loved to explore. Every day, she would go on a new journey, discovering new things and meeting new people. One day, she decided to go on a journey to the top of the highest mountain. She packed her bag with food, water, and some warm clothes, and she set off on her quest. The journey was difficult, but Hannah kept going. She crossed rivers, climbed rocks, and even faced a few wild animals. But no matter what she encountered, she kept going. Finally, after days of traveling, she reached the top of the mountain. She looked out over the landscape and saw the beauty of the world. She felt a sense of accomplishment and joy, and she knew that her journey was worth it. Hannah returned home with stories of her adventures and a newfound appreciation for the world around her. She never forgot the lessons she learned on her journey, and she always remembered that no matter how difficult the journey may be, it's worth it in the end.",
+    title: "The Adventures of Hannah",
   },
 ];
 
