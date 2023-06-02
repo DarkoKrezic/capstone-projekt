@@ -33,4 +33,5 @@ export const Button = styled.button`
 export const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
 `;

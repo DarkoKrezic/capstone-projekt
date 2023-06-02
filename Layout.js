@@ -14,6 +14,8 @@ const LayoutContainer = styled.main`
 
 const ContentContainer = styled.div`
   padding: 0.3rem;
+  max-width: 400px;
+  margin: 0 auto;
 `;
 
 const Layout = ({ children }) => {

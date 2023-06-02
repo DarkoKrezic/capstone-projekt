@@ -12,10 +12,10 @@ const UseStorytellerLink = styled(Link)`
   color: inherit;
   background-image: url(${headerImage});
   background-repeat: no-repeat;
-  background-size: 90% 100%;
+  background-size: 95% 100%;
   box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.3rem;
   outline: none;
   padding: 1rem 2rem;
   text-decoration: none;
