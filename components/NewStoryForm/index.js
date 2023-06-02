@@ -45,7 +45,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
         title: title,
         coverImage: json.secure_url,
         textContent: textContent,
-        dateCreated: new Date().toLocaleDateString(),
+        dateCreated: new Date().toISOString(),
       };
       onSubmit(newStory);
     } catch (error) {
@@ -99,7 +99,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       />
 
       <Button type="submit" aria-label="Save your story">
-        {isUploading ? "Saving …" : "Save"}
+        {isUploading ? "💾 Saving …" : "💾 Save"}
       </Button>
     </Form>
   );

@@ -23,6 +23,12 @@ const UseStorytellerLink = styled(Link)`
 export default function NewStoryPage({ addStory }) {
   const router = useRouter();
   const [isPopupOpen, setIsPopupOpen] = useState(true);
+  useEffect(() => {
+    const hasSeenModal = localStorage.getItem("hasSeenModal");
+    if (hasSeenModal === "true") {
+      setIsPopupOpen(false);
+    }
+  }, []);
 
   function handleStorySubmit(newStory) {
     addStory(newStory);
@@ -30,6 +36,7 @@ export default function NewStoryPage({ addStory }) {
   }
   function handlePopupClose() {
     setIsPopupOpen(false);
+    localStorage.setItem("hasSeenModal", "true");
   }
 
   return (

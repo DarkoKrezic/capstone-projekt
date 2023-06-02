@@ -47,7 +47,7 @@ export default function StoryDetailCard({ story, deleteStory }) {
       <TextContainer>
         <StoryText>{story.textContent}</StoryText>
       </TextContainer>
-      <CreationDate>Erstellt am :{story.dateCreated} </CreationDate>
+      <CreationDate>Created on:{story.dateCreated} </CreationDate>
     </CardContainer>
   );
 }

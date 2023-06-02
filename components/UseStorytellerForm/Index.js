@@ -68,16 +68,10 @@ export default function UseStorytellerForm() {
             value={prompt}
             onChange={handlePromptChange}
             placeholder="Write your story prompt here..."
+            required
           />
           <Button type="submit" disabled={isLoading}>
-            {isLoading ? (
-              <LoadingAnimation /> // Render the loading animation if isLoading is true
-            ) : (
-              "Write the story"
-            )}
-            {/* {isLoading
-              ? "Writing your story...Please wait, this could take some time.If you're not being redirected to the next page after writing the story, please try again."
-              : "Write the story"} */}
+            {isLoading ? <LoadingAnimation /> : "Write the story"}
           </Button>
         </Form>
       </FormContainer>

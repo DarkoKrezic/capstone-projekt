@@ -19,11 +19,10 @@ export const Title = styled.h1`
 export const ButtonContainer = styled.div`
   display: flex;
   gap: 1rem;
-  /* margin-top: 1rem; */
 `;
 
 export const TextContainer = styled.div`
-  max-height: 20vh;
+  max-height: 25vh;
   width: 90%;
   overflow: scroll;
 `;
@@ -33,6 +32,7 @@ export const StoryText = styled.p`
 
 export const BackButton = styled.button`
   margin-bottom: 1rem;
+  font-family: inherit;
 `;
 export const CreationDate = styled.p`
   align-self: self-end;
@@ -42,7 +42,9 @@ export const CreationDate = styled.p`
 `;
 export const EditButton = styled.button`
   margin-bottom: 1rem;
+  font-family: inherit;
 `;
 export const DeleteButton = styled.button`
   margin-bottom: 1rem;
+  font-family: inherit;
 `;
