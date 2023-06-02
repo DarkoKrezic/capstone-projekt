@@ -1,10 +1,16 @@
 # Capstone project - Lil' Storyteller
 
+<img align="right" src="./public/images/Lil Storytellergif.gif" width="150">
+
 Lil'Storyteller is a story generator App, that helps you create your own stories using AI.
 
-![LilStoryteller](./images/Lil Storytellergif.gif)
+## Tech Stack
 
-## Development
+- React
+- Next.js
+- styled-components
+- Cloudiary
+- OpenAI API
 
 ### CodeSandbox
 
