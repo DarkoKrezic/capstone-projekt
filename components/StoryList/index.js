@@ -16,7 +16,6 @@ function StoryList() {
   if (!stories || stories.length === 0) {
     return <p>Loading stories...</p>;
   }
-  console.log(stories);
   return (
     <>
       <Header>My Stories</Header>

@@ -8,6 +8,7 @@ import {
   Button,
 } from "./StyledUseStorytellerForm";
 import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
+import LoadingAnimation from "../LoadingAnimation";
 
 export default function UseStorytellerForm() {
   const [prompt, setPrompt] = useState("");
@@ -28,7 +29,8 @@ export default function UseStorytellerForm() {
       return;
     }
     const storyObjectPrompt = {
-      prompt: `Tell a story for children. The response should be a JSON object, with the following properties: title: write here the title of the story, textContent: write the story text (max 400 words) using this following prompt as brief description: ${prompt}, coverImagePrompt: write the CoverImagePrompt that describes the story and add children book style at the end so we use that style to generate our image `,
+      prompt: `You enact AESOP the great Greek Storyteller. Tell a story for children. The response should be a JSON object, with the following properties: title: write here the title of the story, textContent: write the story text (max 400 words) using this following prompt as brief description: ${prompt}, coverImagePrompt: write the CoverImagePrompt that describes the story and add children book style at the end so we use that style to generate our image. Also do not use characters that could cause syntax errors when parsing.`,
+      // prompt: `Du nimmst die Rolle von AESOP ein, dem griechischen Geschichtenerzähler. Schreib eine Geschichte für Kinder in seinem Stil. Deine Antwort soll ein JSON Objekt sein und folgende Eigenschaften haben :" titel: schreib hier den Titel der Geschichte, textContent: hier schreibst du die Geschichte basierend auf folgendem prompt: ${prompt}, coverImagePrompt: hier schreibst du den Prompt für das CoverImage unserer Geschichte und fügst Kinderbuchstyle am Ende des Prompts hinzu so dass wir ein Image in diesem Style generiert bekommen." Benutze keine Zeichen die Syntaxfehler verursachen können.`,
     };
     try {
       setIsLoading(true);
@@ -66,11 +68,10 @@ export default function UseStorytellerForm() {
             value={prompt}
             onChange={handlePromptChange}
             placeholder="Write your story prompt here..."
+            required
           />
           <Button type="submit" disabled={isLoading}>
-            {isLoading
-              ? "Writing your story...Please wait, this could take some time.If you're not being redirected to the next page after writing the story, please try again."
-              : "Write the story"}
+            {isLoading ? <LoadingAnimation /> : "Write the story"}
           </Button>
         </Form>
       </FormContainer>

@@ -1,3 +1,4 @@
+import { quaternaryColor } from "@/styles";
 import styled from "styled-components";
 export const Form = styled.form`
   display: flex;
@@ -23,8 +24,9 @@ export const TextArea = styled.textarea`
 
 export const Button = styled.button`
   padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #333;
+  font-family: inherit;
+  font-size: 1.2rem;
+  background-color: ${quaternaryColor};
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -33,4 +35,5 @@ export const Button = styled.button`
 export const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
 `;

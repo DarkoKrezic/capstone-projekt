@@ -56,6 +56,7 @@ export const StoryListCard = styled.div`
   background-image: url(${headerImage});
   background-repeat: no-repeat;
   background-size: cover;
+
   padding: 1rem 2.8rem;
 
   &:hover {

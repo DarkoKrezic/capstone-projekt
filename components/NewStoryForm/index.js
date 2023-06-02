@@ -45,7 +45,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
         title: title,
         coverImage: json.secure_url,
         textContent: textContent,
-        dateCreated: new Date().toLocaleDateString(),
+        dateCreated: new Date().toISOString(),
       };
       onSubmit(newStory);
     } catch (error) {
@@ -68,6 +68,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
         required
         aria-required="true"
         aria-label="Story Title"
+        autoComplete="off"
       />
       <Label htmlFor="image-input">Cover Image:</Label>
       <Input
@@ -87,7 +88,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
           height="200"
         />
       )}
-      <Label htmlFor="text-input">Schreib Deine Geschichte:</Label>
+      <Label htmlFor="text-input">Write your story:</Label>
       <TextArea
         id="text-input"
         placeholder="Write your story here"
@@ -98,7 +99,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       />
 
       <Button type="submit" aria-label="Save your story">
-        {isUploading ? "Saving …" : "Save"}
+        {isUploading ? "💾 Saving …" : "💾 Save"}
       </Button>
     </Form>
   );

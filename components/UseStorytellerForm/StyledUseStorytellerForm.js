@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ListBackgroundImage } from "@/styles";
+import { ListBackgroundImage, quaternaryColor } from "@/styles";
 
 export const FormContainer = styled.div`
   display: flex;
@@ -20,6 +20,7 @@ export const FormContainer = styled.div`
 export const Description = styled.p`
   margin: 0 1rem;
   padding: 0 3rem;
+  font-size: 1.2rem;
 `;
 
 export const TextArea = styled.textarea`
@@ -31,8 +32,9 @@ export const TextArea = styled.textarea`
 export const Button = styled.button`
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #333;
+  font-family: inherit;
+  font-size: 1.2rem;
+  background-color: ${quaternaryColor};
   color: #fff;
   border: none;
   border-radius: 4px;

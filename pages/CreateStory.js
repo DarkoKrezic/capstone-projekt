@@ -5,35 +5,30 @@ import { Header } from "@/components/StoryList/StyledStoryList";
 import Link from "next/link";
 import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const UseStorytellerLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   background-image: url(${headerImage});
-  background-repeat: repeat no-repeat;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 95% 100%;
   box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
-  font-size: 1rem;
-  outline: none;
+  font-size: 1.3rem;
   padding: 1rem 2rem;
   text-decoration: none;
-  transition: all 235ms ease-in-out;
-
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-  }
-
-  &:focus {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
-  }
 `;
 
 export default function NewStoryPage({ addStory }) {
   const router = useRouter();
   const [isPopupOpen, setIsPopupOpen] = useState(true);
+  useEffect(() => {
+    const hasSeenModal = localStorage.getItem("hasSeenModal");
+    if (hasSeenModal === "true") {
+      setIsPopupOpen(false);
+    }
+  }, []);
 
   function handleStorySubmit(newStory) {
     addStory(newStory);
@@ -41,6 +36,7 @@ export default function NewStoryPage({ addStory }) {
   }
   function handlePopupClose() {
     setIsPopupOpen(false);
+    localStorage.setItem("hasSeenModal", "true");
   }
 
   return (
@@ -50,6 +46,7 @@ export default function NewStoryPage({ addStory }) {
         🪄 Use Storyteller
       </UseStorytellerLink>
       <NewStoryForm onSubmit={handleStorySubmit} />
+
       <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
         <p>
           You can create your own story here, or just let the storyteller do it
