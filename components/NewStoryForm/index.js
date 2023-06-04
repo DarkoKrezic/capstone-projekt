@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Form, Input, TextArea, Button, Label } from "./StyledNewStoryForm";
+import {
+  Form,
+  Input,
+  TextArea,
+  Button,
+  Label,
+  ImageInput,
+} from "./StyledNewStoryForm";
 import { v4 as uuidv4 } from "uuid";
 
 export default function NewStoryForm({ onSubmit, setStories }) {
@@ -71,7 +78,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
         autoComplete="off"
       />
       <Label htmlFor="image-input">Cover Image:</Label>
-      <Input
+      <ImageInput
         id="image-input"
         type="file"
         accept="image/*"
@@ -91,11 +98,11 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       <Label htmlFor="text-input">Write your story:</Label>
       <TextArea
         id="text-input"
-        placeholder="Write your story here"
+        placeholder="Write your story here, or let the Storyteller do it for you using the Use Storyteller button above..."
         value={textContent}
         onChange={handleTextChange}
         required
-        aria-label="Schreib hier Deine Geschichte"
+        aria-label="Write your story here"
       />
 
       <Button type="submit" aria-label="Save your story">

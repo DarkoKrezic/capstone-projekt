@@ -6,6 +6,7 @@ import {
   TextArea,
   Button,
   Label,
+  ImageInput,
 } from "../NewStoryForm/StyledNewStoryForm";
 export default function EditStoryForm({ story, onUpdate }) {
   const [title, setTitle] = useState(story.title);
@@ -54,7 +55,7 @@ export default function EditStoryForm({ story, onUpdate }) {
         title,
         coverImage: coverImageUrl,
         textContent,
-        dateModified: new Date().toISOString(),
+        dateModified: new Date().toLocaleDateString(),
       };
       onUpdate(updatedStory);
     } catch (error) {
@@ -79,7 +80,7 @@ export default function EditStoryForm({ story, onUpdate }) {
         aria-label="Story Title"
       />
       <Label htmlFor="image-input">Cover Image:</Label>
-      <Input
+      <ImageInput
         id="image-input"
         type="file"
         accept="image/*"
@@ -90,16 +91,16 @@ export default function EditStoryForm({ story, onUpdate }) {
         <Image
           src={URL.createObjectURL(coverImage)}
           alt={`Preview of ${title}`}
-          width="200"
-          height="200"
+          width="150"
+          height="150"
         />
       )}
       {!coverImage && story.coverImage && (
         <Image
           src={story.coverImage}
           alt={`Preview of ${title}`}
-          width="200"
-          height="200"
+          width="150"
+          height="150"
         />
       )}
       <Label htmlFor="text-input">Edit Your Story:</Label>

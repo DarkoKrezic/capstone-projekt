@@ -4,7 +4,6 @@ import { ListBackgroundImage, quaternaryColor } from "@/styles";
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   justify-content: space-between;
   align-content: center;
   gap: 1rem;
@@ -19,14 +18,15 @@ export const FormContainer = styled.div`
 
 export const Description = styled.p`
   margin: 0 1rem;
-  padding: 0 3rem;
-  font-size: 1.2rem;
+  padding: 0 2.4rem;
+  font-size: 1rem;
 `;
 
 export const TextArea = styled.textarea`
   width: 80%;
   height: 100px;
   resize: vertical;
+  font-family: inherit;
 `;
 
 export const Button = styled.button`
@@ -39,4 +39,9 @@ export const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+`;
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
 `;
