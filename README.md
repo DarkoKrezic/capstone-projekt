@@ -1,8 +1,16 @@
-# New Project
+# Capstone project - Lil' Storyteller
 
-This project was created from the neue fische next template.
+<img align="right" src="./public/images/Lil Storytellergif.gif" width="150">
 
-## Development
+Lil'Storyteller is a story generator App, that helps you create your own stories using AI.
+
+## Tech Stack
+
+- React
+- Next.js
+- styled-components
+- Cloudiary
+- OpenAI API
 
 ### CodeSandbox
 

@@ -6,6 +6,7 @@ import {
   Description,
   TextArea,
   Button,
+  Label,
 } from "./StyledUseStorytellerForm";
 import { useImmerLocalStorageState } from "@/lib/hook/useImmerLocalStorageState";
 import LoadingAnimation from "../LoadingAnimation";
@@ -14,23 +15,22 @@ export default function UseStorytellerForm() {
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [stories, setStories] = useImmerLocalStorageState("stories", []);
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const router = useRouter();
 
   function handlePromptChange(event) {
     setPrompt(event.target.value);
-    setError(null);
+    setErrorMessage(null);
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
     if (!prompt) {
-      setError("Please enter a prompt for the story.");
+      setErrorMessage("Please enter a prompt for the story.");
       return;
     }
     const storyObjectPrompt = {
-      prompt: `You enact AESOP the great Greek Storyteller. Tell a story for children. The response should be a JSON object, with the following properties: title: write here the title of the story, textContent: write the story text (max 400 words) using this following prompt as brief description: ${prompt}, coverImagePrompt: write the CoverImagePrompt that describes the story and add children book style at the end so we use that style to generate our image. Also do not use characters that could cause syntax errors when parsing.`,
-      // prompt: `Du nimmst die Rolle von AESOP ein, dem griechischen Geschichtenerzähler. Schreib eine Geschichte für Kinder in seinem Stil. Deine Antwort soll ein JSON Objekt sein und folgende Eigenschaften haben :" titel: schreib hier den Titel der Geschichte, textContent: hier schreibst du die Geschichte basierend auf folgendem prompt: ${prompt}, coverImagePrompt: hier schreibst du den Prompt für das CoverImage unserer Geschichte und fügst Kinderbuchstyle am Ende des Prompts hinzu so dass wir ein Image in diesem Style generiert bekommen." Benutze keine Zeichen die Syntaxfehler verursachen können.`,
+      prompt: `You enact AESOP the great greek Storyteller. Tell a story for children. The response should be a JSON object, with the following properties: title: write here the title of the story, textContent: write the story text (max 600 words) using this following prompt as brief description: ${prompt}, coverImagePrompt: write the CoverImagePrompt (max-length 900 characters) that describes the story and add children book style at the end so we use that style to generate our image. Also do not use characters or  symbols that could cause syntax errors when parsing.`,
     };
     try {
       setIsLoading(true);
@@ -54,6 +54,9 @@ export default function UseStorytellerForm() {
     } catch (error) {
       console.error(error);
       setIsLoading(false);
+      setErrorMessage(
+        "Failed to create your story for some reason. Please try again."
+      );
     }
   }
 
@@ -61,15 +64,24 @@ export default function UseStorytellerForm() {
     <>
       <FormContainer>
         <Description>
-          Enter a brief description of what you want the story to be about:
+          Please write a brief description of your desired story.You can write
+          down the characters you would like to include, any moral messages you
+          want to convey, or any other relevant details. Feel free to be
+          creative and give it a try!
         </Description>
         <Form onSubmit={handleSubmit}>
+          <Label htmlFor="text-input">
+            Write what your story should be about here:
+          </Label>
           <TextArea
+            id="text-input"
             value={prompt}
             onChange={handlePromptChange}
-            placeholder="Write your story prompt here..."
+            placeholder="e.g. a story about 12 little sharks who wanted to learn JavaScript..."
             required
+            aria-label="Write what your story should be about here"
           />
+          {errorMessage && <p>{errorMessage}</p>}
           <Button type="submit" disabled={isLoading}>
             {isLoading ? <LoadingAnimation /> : "Write the story"}
           </Button>

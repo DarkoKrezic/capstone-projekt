@@ -7,17 +7,17 @@ const ModalOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const ModalContent = styled.div`
+const ModalContent = styled.p`
   background-color: white;
   padding: 2rem;
   border-radius: 4px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 `;
 
 const CloseButton = styled.button`

@@ -21,21 +21,12 @@ export const AddStoryLink = styled(Link)`
   background-size: 100% 90%;
   box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
   outline: none;
   padding: 1rem 2rem;
 
   text-decoration: none;
   transition: all 235ms ease-in-out;
-
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-  }
-
-  &:focus {
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
-  }
 `;
 export const StoryListContainer = styled.ul`
   list-style: none;
@@ -58,16 +49,11 @@ export const StoryListCard = styled.div`
   background-size: cover;
 
   padding: 1rem 2.8rem;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
 `;
 
 export const StoryTitle = styled.p`
   width: 50%;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0.5rem 0.5rem 0.5rem;
 `;
 

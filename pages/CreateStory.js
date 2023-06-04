@@ -15,7 +15,7 @@ const UseStorytellerLink = styled(Link)`
   background-size: 95% 100%;
   box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding: 1rem 2rem;
   text-decoration: none;
 `;
