@@ -3,7 +3,7 @@ import { headerImage } from "@/styles";
 import Link from "next/link";
 
 export const Header = styled.h1`
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
   background-image: url(${headerImage});
   background-position: center;
@@ -11,6 +11,8 @@ export const Header = styled.h1`
   background-repeat: no-repeat;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  width: 90vw;
+  max-width: 300px;
 `;
 
 export const AddStoryLink = styled(Link)`

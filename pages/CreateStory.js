@@ -6,6 +6,7 @@ import Link from "next/link";
 import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
 import React, { useState, useEffect } from "react";
+import { PageContainer } from "@/components/UseStorytellerForm/StyledUseStorytellerForm";
 
 const UseStorytellerLink = styled(Link)`
   text-decoration: none;
@@ -13,11 +14,12 @@ const UseStorytellerLink = styled(Link)`
   background-image: url(${headerImage});
   background-repeat: no-repeat;
   background-size: 95% 100%;
-  box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
+
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   padding: 1rem 2rem;
   text-decoration: none;
+  text-align: center;
 `;
 
 export default function NewStoryPage({ addStory }) {
@@ -41,18 +43,20 @@ export default function NewStoryPage({ addStory }) {
 
   return (
     <>
-      <Header>Create a new story</Header>
-      <UseStorytellerLink href="/StorytellerPage">
-        🪄 Use Storyteller
-      </UseStorytellerLink>
-      <NewStoryForm onSubmit={handleStorySubmit} />
+      <PageContainer>
+        <Header>Create a new story</Header>
+        <UseStorytellerLink href="/StorytellerPage">
+          🪄 Use Storyteller🪄
+        </UseStorytellerLink>
+        <NewStoryForm onSubmit={handleStorySubmit} />
 
-      <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
-        <p>
-          You can create your own story here, or just let the storyteller do it
-          for you! To do so just click the 🪄 Use Storyteller button above.
-        </p>
-      </PopupModal>
+        <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
+          <p>
+            You can create your own story here, or just let the storyteller do
+            it for you! To do so just click the 🪄 Use Storyteller button above.
+          </p>
+        </PopupModal>
+      </PageContainer>
     </>
   );
 }

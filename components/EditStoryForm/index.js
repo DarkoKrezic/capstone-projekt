@@ -91,16 +91,16 @@ export default function EditStoryForm({ story, onUpdate }) {
         <Image
           src={URL.createObjectURL(coverImage)}
           alt={`Preview of ${title}`}
-          width="150"
-          height="150"
+          width="250"
+          height="250"
         />
       )}
       {!coverImage && story.coverImage && (
         <Image
           src={story.coverImage}
           alt={`Preview of ${title}`}
-          width="150"
-          height="150"
+          width="300"
+          height="300"
         />
       )}
       <Label htmlFor="text-input">Edit Your Story:</Label>
