@@ -19,19 +19,21 @@ export const FormContainer = styled.div`
   background-size: contain;
   background-repeat: no-repeat; */
   padding-top: 2rem;
-  padding-bottom: 6rem;
+  padding-bottom: 1rem;
   flex-grow: 1;
 `;
 
 export const Description = styled.p`
-  margin: 0 1rem;
-  padding: 0 2.4rem;
+  margin: 1rem 1rem;
+  padding: 1rem 2.4rem;
   font-size: 1.2rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
 `;
 
 export const TextArea = styled.textarea`
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   resize: vertical;
   font-family: inherit;
   font-size: 1rem;

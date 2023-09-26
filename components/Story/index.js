@@ -11,6 +11,7 @@ import {
   EditButton,
   DeleteButton,
   ButtonContainer,
+  ImageContainer,
 } from "./StyledStory";
 
 export default function StoryDetailCard({ story, deleteStory }) {
@@ -27,23 +28,25 @@ export default function StoryDetailCard({ story, deleteStory }) {
       <Title>{story.title}</Title>
       <ButtonContainer>
         <Link href="/">
-          <BackButton type="button"> 🔙 to My Stories</BackButton>
+          <BackButton type="button"> 🔙 zurück</BackButton>
         </Link>
         <Link href={`/stories/${story.id}/EditStory`}>
-          <EditButton type="button">✂️ Edit</EditButton>
+          <EditButton type="button">✂️ Bearbeiten</EditButton>
         </Link>
         <Link href={"/"}>
           <DeleteButton type="button" onClick={handleDeleteClick}>
-            🗑️ Delete
+            🗑️ Löschen
           </DeleteButton>
         </Link>
       </ButtonContainer>
-      <Image
-        src={story.coverImage}
-        alt={story.title}
-        width={280}
-        height={280}
-      />
+      <ImageContainer>
+        <Image
+          src={story.coverImage}
+          alt={story.title}
+          width={330}
+          height={330}
+        />
+      </ImageContainer>
       <TextContainer>
         <StoryText>{story.textContent}</StoryText>
       </TextContainer>

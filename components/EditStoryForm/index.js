@@ -8,6 +8,7 @@ import {
   Label,
   ImageInput,
 } from "../NewStoryForm/StyledNewStoryForm";
+import { ImageContainer } from "../Story/StyledStory";
 export default function EditStoryForm({ story, onUpdate }) {
   const [title, setTitle] = useState(story.title);
   const [coverImage, setCoverImage] = useState(null);
@@ -79,7 +80,7 @@ export default function EditStoryForm({ story, onUpdate }) {
         aria-required="true"
         aria-label="Story Title"
       />
-      <Label htmlFor="image-input">Cover Image:</Label>
+      <Label htmlFor="image-input">Cover Image ändern ⬇️:</Label>
       <ImageInput
         id="image-input"
         type="file"
@@ -87,23 +88,25 @@ export default function EditStoryForm({ story, onUpdate }) {
         onChange={handleImageChange}
         aria-label="Cover Image"
       />
-      {coverImage && (
-        <Image
-          src={URL.createObjectURL(coverImage)}
-          alt={`Preview of ${title}`}
-          width="250"
-          height="250"
-        />
-      )}
-      {!coverImage && story.coverImage && (
-        <Image
-          src={story.coverImage}
-          alt={`Preview of ${title}`}
-          width="300"
-          height="300"
-        />
-      )}
-      <Label htmlFor="text-input">Edit Your Story:</Label>
+      <ImageContainer>
+        {coverImage && (
+          <Image
+            src={URL.createObjectURL(coverImage)}
+            alt={`Preview of ${title}`}
+            width="250"
+            height="250"
+          />
+        )}
+        {!coverImage && story.coverImage && (
+          <Image
+            src={story.coverImage}
+            alt={`Preview of ${title}`}
+            width="330"
+            height="330"
+          />
+        )}
+      </ImageContainer>
+      <Label htmlFor="text-input">Geschichte bearbeiten ⬇️:</Label>
       <TextArea
         id="text-input"
         placeholder="Write your story here"

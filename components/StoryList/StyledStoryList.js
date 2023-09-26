@@ -11,8 +11,11 @@ export const Header = styled.h1`
   background-repeat: no-repeat;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  width: 90vw;
+  width: 100vw;
   max-width: 300px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
 `;
 
 export const AddStoryLink = styled(Link)`
@@ -23,12 +26,12 @@ export const AddStoryLink = styled(Link)`
   background-size: 100% 90%;
   box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   outline: none;
   padding: 1rem 2rem;
-
   text-decoration: none;
   transition: all 235ms ease-in-out;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 `;
 export const StoryListContainer = styled.ul`
   list-style: none;
@@ -37,14 +40,12 @@ export const StoryListContainer = styled.ul`
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
-  gap: 1rem;
   padding: 0;
 `;
 
 export const StoryListCard = styled.div`
   display: flex;
-  padding: 0.5rem;
-  width: 100%;
+  width: 100vw;
   margin: auto;
   background-image: url(${headerImage});
   background-repeat: no-repeat;
@@ -55,7 +56,7 @@ export const StoryListCard = styled.div`
 
 export const StoryTitle = styled.p`
   width: 50%;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin: 0.5rem 0.5rem 0.5rem;
 `;
 

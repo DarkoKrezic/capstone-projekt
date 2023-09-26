@@ -14,10 +14,10 @@ const LayoutContainer = styled.main`
 
 const ContentContainer = styled.div`
   /* padding: 0.3rem; */
+  justify-content: space-between;
   max-width: 400px;
   height: 100vh;
   margin: 0 auto;
-  justify-content: space-around;
 `;
 
 const Layout = ({ children }) => {

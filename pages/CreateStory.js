@@ -1,12 +1,24 @@
 import NewStoryForm from "@/components/NewStoryForm";
 import { useRouter } from "next/router";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Header } from "@/components/StoryList/StyledStoryList";
 import Link from "next/link";
 import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
 import React, { useState, useEffect } from "react";
 import { PageContainer } from "@/components/UseStorytellerForm/StyledUseStorytellerForm";
+
+const animateShadow = keyframes`
+  0% {
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;
+  }
+  50% {
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px rgba(0,0,0,0.1);
+  }
+  100% {
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;   
+  }
+`;
 
 const UseStorytellerLink = styled(Link)`
   text-decoration: none;
@@ -20,6 +32,7 @@ const UseStorytellerLink = styled(Link)`
   padding: 1rem 2rem;
   text-decoration: none;
   text-align: center;
+  animation: ${animateShadow} 1s infinite;
 `;
 
 export default function NewStoryPage({ addStory }) {
@@ -44,7 +57,7 @@ export default function NewStoryPage({ addStory }) {
   return (
     <>
       <PageContainer>
-        <Header>Create a new story</Header>
+        <Header>Schreibe eine Geschichte</Header>
         <UseStorytellerLink href="/StorytellerPage">
           🪄 Use Storyteller🪄
         </UseStorytellerLink>
