@@ -41,10 +41,12 @@ export const Button = styled.button`
   border: none;
   border-radius: 7px;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.499) 3px 3px 10px 3px;
 `;
 export const Label = styled.label`
   display: block;
   margin-bottom: 0.2rem;
   font-size: 1.5rem;
   background-color: ${tertiaryColor};
+  box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 3px;
 `;

@@ -69,7 +69,7 @@ export default function EditStoryForm({ story, onUpdate }) {
 
   return (
     <Form onSubmit={handleSubmitEdit}>
-      <Label htmlFor="title-input">Story Title:</Label>
+      <Label htmlFor="title-input">Story Title ⬇️:</Label>
       <Input
         id="title-input"
         type="text"

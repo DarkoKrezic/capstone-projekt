@@ -37,8 +37,8 @@ export const StoryListContainer = styled.ul`
   max-height: 75vh;
   overflow: scroll;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: center;
+  /* justify-content: space-between;
+  align-content: center; */
   padding: 0;
   width: 100%;
 `;

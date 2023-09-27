@@ -28,6 +28,7 @@ const CloseButton = styled.button`
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  background-color: gray;
 `;
 
 const PopupModal = ({ isOpen, onClose, children }) => {
