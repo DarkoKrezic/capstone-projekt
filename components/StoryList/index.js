@@ -18,8 +18,8 @@ function StoryList() {
   }
   return (
     <>
-      <Header>My Stories</Header>
-      <AddStoryLink href="/CreateStory">🖋️ Write a new Story</AddStoryLink>
+      <Header>Meine Geschichten</Header>
+      <AddStoryLink href="/CreateStory">🖋️ Neue Geschichte</AddStoryLink>
       <StoryListContainer>
         {stories.map((story) => (
           <StyledListItem key={story.id}>

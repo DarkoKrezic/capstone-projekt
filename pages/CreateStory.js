@@ -56,20 +56,21 @@ export default function NewStoryPage({ addStory }) {
 
   return (
     <>
-      <PageContainer>
-        <Header>Schreibe eine Geschichte</Header>
-        <UseStorytellerLink href="/StorytellerPage">
-          🪄 Use Storyteller🪄
-        </UseStorytellerLink>
-        <NewStoryForm onSubmit={handleStorySubmit} />
+      {/* <PageContainer> */}
+      <Header>Schreibe eine Geschichte</Header>
+      <UseStorytellerLink href="/StorytellerPage">
+        🪄 Use Storyteller🪄
+      </UseStorytellerLink>
+      <NewStoryForm onSubmit={handleStorySubmit} />
 
-        <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
-          <p>
-            You can create your own story here, or just let the storyteller do
-            it for you! To do so just click the 🪄 Use Storyteller button above.
-          </p>
-        </PopupModal>
-      </PageContainer>
+      <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
+        <p>
+          Hier kannst du eine Geschichte schreiben oder eine Geschichte
+          schreiben lassen von unserem Storyteller. Clicke dafür auf 🪄 Use
+          Storyteller.
+        </p>
+      </PopupModal>
+      {/* </PageContainer> */}
     </>
   );
 }

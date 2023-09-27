@@ -65,7 +65,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
   }
   return (
     <Form onSubmit={handleSubmit}>
-      <Label htmlFor="title-input">Story Title:</Label>
+      <Label htmlFor="title-input">Story Title: ⬇️</Label>
       <Input
         id="title-input"
         type="text"
@@ -77,7 +77,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
         aria-label="Story Title"
         autoComplete="off"
       />
-      <Label htmlFor="image-input">Cover Image:</Label>
+      <Label htmlFor="image-input">Cover Image:⬇️</Label>
       <ImageInput
         id="image-input"
         type="file"
@@ -95,7 +95,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
           height="200"
         />
       )}
-      <Label htmlFor="text-input">Write your story:</Label>
+      <Label htmlFor="text-input">Write your story: ⬇️</Label>
       <TextArea
         id="text-input"
         placeholder="Write your story here, or let the Storyteller do it for you using the Use Storyteller button above..."

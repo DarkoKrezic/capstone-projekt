@@ -10,6 +10,7 @@ const LayoutContainer = styled.main`
   height: 100vh;
   overflow: auto;
   background-color: ${secondaryColor};
+  box-sizing: border-box;
 `;
 
 const ContentContainer = styled.div`
