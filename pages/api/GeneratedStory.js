@@ -69,6 +69,7 @@ export default async function handler(req, res) {
       model: "text-davinci-003",
       prompt: prompt,
       max_tokens: 2000,
+      top_p: 1,
       temperature: 0.8,
     });
     const jsonString = completion.data.choices[0].text.replace(

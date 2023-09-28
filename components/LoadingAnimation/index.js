@@ -22,7 +22,7 @@ const LoadingAnimationWrapper = styled.div`
 const LoadingAnimation = () => {
   return (
     <LoadingAnimationWrapper>
-      <p>Deine Geschichte wird Geschrieben...</p>
+      <p style={{ fontSize: "1.5rem" }}>Deine Geschichte wird Geschrieben...</p>
       <Lottie
         animationData={animationData}
         autoplay

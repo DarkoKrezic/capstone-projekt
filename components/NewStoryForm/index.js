@@ -68,7 +68,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       <Input
         id="title-input"
         type="text"
-        placeholder="Name of your Story"
+        placeholder="Titel Deiner Geschichte"
         value={title}
         onChange={handleTitleChange}
         required

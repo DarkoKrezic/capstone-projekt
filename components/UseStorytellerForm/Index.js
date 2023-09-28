@@ -77,7 +77,7 @@ export default function UseStorytellerForm() {
               id="text-input"
               value={prompt}
               onChange={handlePromptChange}
-              placeholder="e.g. a story about 12 little sharks who wanted to learn JavaScript..."
+              placeholder="z.B erzähle eine Geschichte über das blaue Pferd welches lernen wollte Fahrrad zu fahren"
               required
               aria-label="Write what your story should be about here"
             />

@@ -56,16 +56,16 @@ export default function NewStoryPage({ addStory }) {
   return (
     <>
       {/* <PageContainer> */}
-      <Header>Schreibe eine Geschichte</Header>
+      <Header>Neue Geschichte</Header>
       <UseStorytellerLink href="/StorytellerPage">
-        🪄 Use Storyteller🪄
+        🪄 Storyteller 🪄
       </UseStorytellerLink>
       <NewStoryForm onSubmit={handleStorySubmit} />
 
       <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
         <p>
           Hier kannst du eine Geschichte schreiben oder eine Geschichte
-          schreiben lassen von unserem Storyteller. Clicke dafür auf 🪄 Use
+          schreiben lassen von unserem Storyteller. Clicke dafür auf 🪄
           Storyteller.
         </p>
       </PopupModal>
