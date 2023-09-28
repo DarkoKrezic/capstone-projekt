@@ -77,10 +77,7 @@ export default async function handler(req, res) {
       temperature: 0.8,
     });
     console.log(completion.data.choices[0].message.content);
-    const jsonString = completion.data.choices[0].message.content.replace(
-      /(\w+):/g,
-      '"$1":'
-    );
+    const jsonString = completion.data.choices[0].message.content;
     const formattedJsonString = jsonString.replace(/(\r\n|\n|\r)/gm, "");
     console.log(formattedJsonString);
     const generatedStory = JSON.parse(formattedJsonString);
