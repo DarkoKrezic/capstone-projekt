@@ -16,7 +16,6 @@ const LoadingAnimationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 4rem;
-  background-color: rgba(255, 255, 255, 0.8);
   color: black;
 `;
 

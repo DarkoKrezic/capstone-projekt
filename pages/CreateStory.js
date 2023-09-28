@@ -6,7 +6,6 @@ import Link from "next/link";
 import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
 import React, { useState, useEffect } from "react";
-import { PageContainer } from "@/components/UseStorytellerForm/StyledUseStorytellerForm";
 
 const animateShadow = keyframes`
   0% {

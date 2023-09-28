@@ -27,7 +27,7 @@ export default function UseStorytellerForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     if (!prompt) {
-      setErrorMessage("Please enter a prompt for the story.");
+      setErrorMessage("Bitte schreibe Deinen Wunschzettel.");
       return;
     }
     const storyObjectPrompt = {
@@ -56,7 +56,7 @@ export default function UseStorytellerForm() {
       console.error(error);
       setIsLoading(false);
       setErrorMessage(
-        "Failed to create your story for some reason. Please try again."
+        "Irgendwas ist schiefgelaufen. Bitte versuche es nochmal."
       );
     }
   }

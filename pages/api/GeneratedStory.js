@@ -65,11 +65,11 @@ async function uploadImageToCloudinary(imageUrl) {
 export default async function handler(req, res) {
   try {
     const { prompt } = req.body;
-    const completion = await openai.completions.create({
-      model: "gpt-3.5-turbo-instruct",
+    const completion = await openai.createCompletion({
+      model: "text-davinci-003",
       prompt: prompt,
       max_tokens: 2000,
-      temperature: 0.9,
+      temperature: 0.8,
     });
     const jsonString = completion.data.choices[0].text.replace(
       /(\w+):/g,

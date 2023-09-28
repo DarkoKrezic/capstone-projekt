@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 80vh; // Make the container take up the entire viewport height
+  height: 80vh;
 `;
 
 export const FormContainer = styled.div`
@@ -13,11 +13,6 @@ export const FormContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-
-  /* background-image: url(${ListBackgroundImage});
-  background-position: top;
-  background-size: contain;
-  background-repeat: no-repeat; */
   padding-top: 2rem;
   padding-bottom: 1rem;
   flex-grow: 1;
@@ -51,8 +46,11 @@ export const Button = styled.button`
   border: none;
   border-radius: 8px;
   width: 60%;
-  box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 3px;
+  box-shadow: rgba(0, 0, 0, 0.355) 3px 3px 10px 3px;
   cursor: pointer;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 3px;
+  }
 `;
 export const Label = styled.label`
   display: block;
