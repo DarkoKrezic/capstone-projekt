@@ -1,36 +1,34 @@
 import { tertiaryColor } from "@/styles";
 import React from "react";
 import styled, { keyframes } from "styled-components";
-
-const spinAnimation = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
+import Lottie from "lottie-react";
+import animationData from "schreibAnimation.json";
 
 const LoadingAnimationWrapper = styled.div`
+  position: fixed;
+  top: 50vh;
+  left: 20vw;
+  width: 60%;
+  height: 60%;
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 4rem;
-`;
-
-const Spinner = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 4px solid #f3f3f3; /* Light color */
-  border-top: 4px solid ${tertiaryColor};
-  border-radius: 50%;
-  animation: ${spinAnimation} 1s linear infinite;
+  color: black;
 `;
 
 const LoadingAnimation = () => {
   return (
     <LoadingAnimationWrapper>
-      <Spinner />
+      <p style={{ fontSize: "1.5rem" }}>Deine Geschichte wird Geschrieben...</p>
+      <Lottie
+        animationData={animationData}
+        autoplay
+        loop
+        style={{ width: 100, height: 100 }}
+      />
     </LoadingAnimationWrapper>
   );
 };

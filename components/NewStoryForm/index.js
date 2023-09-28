@@ -14,7 +14,6 @@ export default function NewStoryForm({ onSubmit, setStories }) {
   const [title, setTitle] = useState("");
   const [coverImage, setCoverImage] = useState(null);
   const [textContent, setTextContent] = useState("");
-
   const [isUploading, setIsUploading] = useState(false);
 
   function handleTitleChange(event) {
@@ -65,11 +64,11 @@ export default function NewStoryForm({ onSubmit, setStories }) {
   }
   return (
     <Form onSubmit={handleSubmit}>
-      <Label htmlFor="title-input">Story Title:</Label>
+      <Label htmlFor="title-input">Titel: ⬇️</Label>
       <Input
         id="title-input"
         type="text"
-        placeholder="Name of your Story"
+        placeholder="Titel Deiner Geschichte"
         value={title}
         onChange={handleTitleChange}
         required
@@ -77,7 +76,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
         aria-label="Story Title"
         autoComplete="off"
       />
-      <Label htmlFor="image-input">Cover Image:</Label>
+      <Label htmlFor="image-input">Cover Image:⬇️</Label>
       <ImageInput
         id="image-input"
         type="file"
@@ -95,10 +94,10 @@ export default function NewStoryForm({ onSubmit, setStories }) {
           height="200"
         />
       )}
-      <Label htmlFor="text-input">Write your story:</Label>
+      <Label htmlFor="text-input">Schreib Deine Geschichte: ⬇️</Label>
       <TextArea
         id="text-input"
-        placeholder="Write your story here, or let the Storyteller do it for you using the Use Storyteller button above..."
+        placeholder="Schreibe hier Deine Geschichte oder lass sie vom Storyteller schreiben in dem Du auf Use Storyteller klickst. "
         value={textContent}
         onChange={handleTextChange}
         required
@@ -106,7 +105,7 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       />
 
       <Button type="submit" aria-label="Save your story">
-        {isUploading ? "💾 Saving …" : "💾 Save"}
+        {isUploading ? "💾 Speichert …" : "💾 Speichern"}
       </Button>
     </Form>
   );

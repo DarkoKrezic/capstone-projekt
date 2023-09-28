@@ -1,11 +1,23 @@
 import NewStoryForm from "@/components/NewStoryForm";
 import { useRouter } from "next/router";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Header } from "@/components/StoryList/StyledStoryList";
 import Link from "next/link";
 import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
 import React, { useState, useEffect } from "react";
+
+const animateShadow = keyframes`
+  0% {
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;
+  }
+  50% {
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px rgba(0,0,0,0.1);
+  }
+  100% {
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;   
+  }
+`;
 
 const UseStorytellerLink = styled(Link)`
   text-decoration: none;
@@ -13,11 +25,13 @@ const UseStorytellerLink = styled(Link)`
   background-image: url(${headerImage});
   background-repeat: no-repeat;
   background-size: 95% 100%;
-  box-shadow: rgba(0, 0, 0, 0.2) 1rem 2rem 2rem -1.5rem;
+
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   padding: 1rem 2rem;
   text-decoration: none;
+  text-align: center;
+  animation: ${animateShadow} 1s infinite;
 `;
 
 export default function NewStoryPage({ addStory }) {
@@ -41,18 +55,21 @@ export default function NewStoryPage({ addStory }) {
 
   return (
     <>
-      <Header>Create a new story</Header>
+      {/* <PageContainer> */}
+      <Header>Neue Geschichte</Header>
       <UseStorytellerLink href="/StorytellerPage">
-        🪄 Use Storyteller
+        🪄 Storyteller 🪄
       </UseStorytellerLink>
       <NewStoryForm onSubmit={handleStorySubmit} />
 
       <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>
         <p>
-          You can create your own story here, or just let the storyteller do it
-          for you! To do so just click the 🪄 Use Storyteller button above.
+          Hier kannst du eine Geschichte schreiben oder eine Geschichte
+          schreiben lassen von unserem Storyteller. Clicke dafür auf 🪄
+          Storyteller.
         </p>
       </PopupModal>
+      {/* </PageContainer> */}
     </>
   );
 }

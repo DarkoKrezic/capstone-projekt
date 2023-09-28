@@ -4,7 +4,7 @@ import UseStorytellerForm from "@/components/UseStorytellerForm/Index";
 export default function StorytellerPage() {
   return (
     <>
-      <Header>🪄 Storyteller Page</Header>
+      <Header>🪄 Storyteller</Header>
       <UseStorytellerForm />
     </>
   );
