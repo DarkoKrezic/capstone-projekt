@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ListBackgroundImage, quaternaryColor } from "@/styles";
-
+import { tertiaryColor } from "@/styles";
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,6 +29,7 @@ export const Description = styled.p`
   font-size: 1.2rem;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 3px;
 `;
 
 export const TextArea = styled.textarea`
@@ -50,11 +51,13 @@ export const Button = styled.button`
   border: none;
   border-radius: 8px;
   width: 60%;
-
+  box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 3px;
   cursor: pointer;
 `;
 export const Label = styled.label`
   display: block;
   margin-bottom: 0.2rem;
   font-size: 1.2rem;
+  background-color: ${tertiaryColor};
+  box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 3px;
 `;
