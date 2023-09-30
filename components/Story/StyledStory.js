@@ -7,6 +7,18 @@ export const CardContainer = styled.main`
   align-items: center;
   height: 100vh;
   flex-grow: 1;
+  position: relative;
+  background-color: transparent;
+  z-index: 1;
+`;
+export const BackgroundImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(10px); // Hier kannst du die gewünschte Blur-Stärke einstellen
 `;
 export const Title = styled.h1`
   font-size: 2rem;
@@ -18,6 +30,7 @@ export const Title = styled.h1`
   background-repeat: no-repeat;
   padding: 2rem 3rem;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
 `;
 export const ButtonContainer = styled.div`
   display: flex;
@@ -39,7 +52,7 @@ export const TextContainer = styled.div`
 `;
 export const StoryText = styled.p`
   font-size: 1.2rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.649);
   border-radius: 10px;
   padding: 1rem;
 `;

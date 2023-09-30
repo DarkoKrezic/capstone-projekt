@@ -12,6 +12,7 @@ import {
   DeleteButton,
   ButtonContainer,
   ImageContainer,
+  BackgroundImage,
 } from "./StyledStory";
 
 export default function StoryDetailCard({ story, deleteStory }) {
@@ -25,6 +26,9 @@ export default function StoryDetailCard({ story, deleteStory }) {
   }
   return (
     <CardContainer>
+      <BackgroundImage
+        style={{ backgroundImage: `url(${story.coverImage})` }}
+      />
       <Title>{story.title}</Title>
       <ButtonContainer>
         <Link href="/">
