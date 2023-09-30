@@ -8,13 +8,20 @@ import {
   Label,
   ImageInput,
 } from "../NewStoryForm/StyledNewStoryForm";
+import { StyledRegenerateModal } from "../RegenerateModal/StyledRegenerateModal";
+import RegenerateModal from "../RegenerateModal";
 import { ImageContainer } from "../Story/StyledStory";
+import LoadingAnimation from "../LoadingAnimation";
+
 export default function EditStoryForm({ story, onUpdate }) {
   const [title, setTitle] = useState(story.title);
   const [coverImage, setCoverImage] = useState(null);
   const [textContent, setTextContent] = useState(story.textContent);
   const [isUploading, setIsUploading] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const [prompt, setPrompt] = useState(story.prompt);
   function handleTitleChange(event) {
     setTitle(event.target.value);
   }
@@ -27,7 +34,10 @@ export default function EditStoryForm({ story, onUpdate }) {
   function handleTextChange(event) {
     setTextContent(event.target.value);
   }
-
+  function handlePromptChange(event) {
+    console.log(event.target.value);
+    setPrompt(event.target.value);
+  }
   async function handleSubmitEdit(event) {
     event.preventDefault();
     setIsUploading(true);
@@ -64,6 +74,33 @@ export default function EditStoryForm({ story, onUpdate }) {
     } finally {
       setIsUploading(false);
       setCoverImage(null);
+    }
+  }
+  async function handleRegenerateStory() {
+    console.log(prompt);
+    const changeStoryPrompt = {
+      prompt: ` ${story.textContent} + ${prompt}  `,
+    };
+    try {
+      setIsLoading(true);
+      const response = await fetch("/api/RegenerateText", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(changeStoryPrompt),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to regenerate story");
+      }
+      const regeneratedStoryText = await response.json();
+      console.log(regeneratedStoryText);
+      setTextContent(regeneratedStoryText.newTextContent);
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Failed to regenerate story:", error);
+    } finally {
+      setModalVisible(false);
     }
   }
 
@@ -107,6 +144,16 @@ export default function EditStoryForm({ story, onUpdate }) {
         )}
       </ImageContainer>
       <Label htmlFor="text-input">Geschichte bearbeiten ⬇️:</Label>
+      <Button type="button" onClick={() => setModalVisible(true)}>
+        Geschichte verändern lassen
+      </Button>
+      <RegenerateModal
+        isVisible={modalVisible}
+        existingStory={story.textContent}
+        onChangePrompt={handlePromptChange}
+        onRegenerate={handleRegenerateStory}
+        onClose={() => setModalVisible(false)}
+      ></RegenerateModal>
       <TextArea
         id="text-input"
         placeholder="Write your story here"

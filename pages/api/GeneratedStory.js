@@ -70,7 +70,7 @@ export default async function handler(req, res) {
         { role: "system", content: "You are a helpfull assistant" },
         { role: "user", content: prompt },
       ],
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       // prompt: prompt,
       max_tokens: 2000,
       top_p: 1,
