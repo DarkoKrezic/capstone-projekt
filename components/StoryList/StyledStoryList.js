@@ -65,6 +65,7 @@ export const StoryCoverImage = styled.img`
   width: 20%;
   object-fit: cover;
   margin-bottom: 0.5rem;
+  border-radius: 20%;
 `;
 
 export const StoryCreationDate = styled.p`

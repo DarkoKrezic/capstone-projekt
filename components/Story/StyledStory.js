@@ -31,7 +31,7 @@ export const ImageContainer = styled.div`
   z-index: 1;
 `;
 export const TextContainer = styled.div`
-  max-height: 40vh;
+  max-height: 35vh;
   width: 90%;
   overflow: scroll;
   margin-top: 1rem;

@@ -9,26 +9,29 @@ const LoadingAnimationWrapper = styled.div`
   top: 50vh;
   left: 20vw;
   width: 60%;
-  height: 60%;
+  height: 20rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 4rem;
+  /* height: 4rem; */
   color: black;
+  z-index: 4;
+  background-color: ${tertiaryColor};
+  box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 6px;
 `;
 
 const LoadingAnimation = () => {
   return (
     <LoadingAnimationWrapper>
-      <p style={{ fontSize: "1.5rem" }}>Deine Geschichte wird Geschrieben...</p>
       <Lottie
         animationData={animationData}
         autoplay
         loop
         style={{ width: 100, height: 100 }}
       />
+      <p style={{ fontSize: "1.5rem" }}>Deine Geschichte wird Geschrieben...</p>
     </LoadingAnimationWrapper>
   );
 };

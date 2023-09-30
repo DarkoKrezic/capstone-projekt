@@ -107,6 +107,9 @@ export default function NewStoryForm({ onSubmit, setStories }) {
       <Button type="submit" aria-label="Save your story">
         {isUploading ? "💾 Speichert …" : "💾 Speichern"}
       </Button>
+      <Button type="button" href="/">
+        Nicht Speichern
+      </Button>
     </Form>
   );
 }

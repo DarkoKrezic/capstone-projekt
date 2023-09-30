@@ -65,18 +65,21 @@ async function uploadImageToCloudinary(imageUrl) {
 export default async function handler(req, res) {
   try {
     const { prompt } = req.body;
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: prompt,
+    const completion = await openai.createChatCompletion({
+      messages: [
+        { role: "system", content: "You are a helpfull assistant" },
+        { role: "user", content: prompt },
+      ],
+      model: "gpt-3.5-turbo",
+      // prompt: prompt,
       max_tokens: 2000,
       top_p: 1,
       temperature: 0.8,
     });
-    const jsonString = completion.data.choices[0].text.replace(
-      /(\w+):/g,
-      '"$1":'
-    );
+    console.log(completion.data.choices[0].message.content);
+    const jsonString = completion.data.choices[0].message.content;
     const formattedJsonString = jsonString.replace(/(\r\n|\n|\r)/gm, "");
+    console.log(formattedJsonString);
     const generatedStory = JSON.parse(formattedJsonString);
 
     const coverImage = await generateCoverImage(
