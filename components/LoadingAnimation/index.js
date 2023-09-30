@@ -17,6 +17,7 @@ const LoadingAnimationWrapper = styled.div`
   align-items: center;
   height: 4rem;
   color: black;
+  z-index: 4;
 `;
 
 const LoadingAnimation = () => {

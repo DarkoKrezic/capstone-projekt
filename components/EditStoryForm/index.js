@@ -20,6 +20,7 @@ export default function EditStoryForm({ story, onUpdate }) {
   const [isUploading, setIsUploading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isRegenerating, setIsRegenerating] = useState(false);
 
   const [prompt, setPrompt] = useState(story.prompt);
   function handleTitleChange(event) {
@@ -82,6 +83,7 @@ export default function EditStoryForm({ story, onUpdate }) {
       prompt: ` ${story.textContent} + ${prompt}  `,
     };
     try {
+      setIsRegenerating(true);
       setIsLoading(true);
       const response = await fetch("/api/RegenerateText", {
         method: "POST",
@@ -96,8 +98,10 @@ export default function EditStoryForm({ story, onUpdate }) {
       const regeneratedStoryText = await response.json();
       console.log(regeneratedStoryText);
       setTextContent(regeneratedStoryText.newTextContent);
+      setIsRegenerating(false);
     } catch (error) {
       setIsLoading(false);
+      setIsRegenerating(false);
       console.error("Failed to regenerate story:", error);
     } finally {
       setModalVisible(false);

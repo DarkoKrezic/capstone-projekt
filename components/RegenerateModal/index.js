@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Label } from "../NewStoryForm/StyledNewStoryForm";
 import { StyledRegenerateModal, TextArea } from "./StyledRegenerateModal";
-
+import LoadingAnimation from "../LoadingAnimation";
 // const [prompt, setPrompt] = useState("");
 export default function RegenerateModal({
   isVisible,
@@ -9,6 +9,7 @@ export default function RegenerateModal({
   onChangePrompt,
   onRegenerate,
   onClose,
+  isRegenerating,
 }) {
   if (!isVisible) {
     return null;
@@ -24,6 +25,7 @@ export default function RegenerateModal({
       <Button type="button" onClick={onClose}>
         Schließen
       </Button>
+      {isRegenerating && <LoadingAnimation />}
     </StyledRegenerateModal>
   );
 }
