@@ -20,7 +20,7 @@ export default function RegenerateModal({
       <Label>schreib was geändert werden soll ⬇️:</Label>
       <TextArea value={prompt} onChange={onChangePrompt} />
       <Button type="button" onClick={onRegenerate}>
-        Neugenerieren
+        Senden
       </Button>
       <Button type="button" onClick={onClose}>
         Schließen

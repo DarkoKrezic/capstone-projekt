@@ -6,7 +6,7 @@ import Link from "next/link";
 import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
 import React, { useState, useEffect } from "react";
-
+import { Label } from "@/components/NewStoryForm/StyledNewStoryForm";
 const animateShadow = keyframes`
   0% {
     text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;
@@ -33,6 +33,10 @@ const UseStorytellerLink = styled(Link)`
   text-align: center;
   animation: ${animateShadow} 1s infinite;
 `;
+const LabelStoryteller = styled.label`
+  display: block;
+  margin-bottom: 1rem;
+`;
 
 export default function NewStoryPage({ addStory }) {
   const router = useRouter();
@@ -57,9 +61,13 @@ export default function NewStoryPage({ addStory }) {
     <>
       {/* <PageContainer> */}
       <Header>Neue Geschichte</Header>
-      <UseStorytellerLink href="/StorytellerPage">
+      <LabelStoryteller htmlFor="story-teller-link">
+        ⬇️ Du kannst deine Geschichte erstellen lassen
+      </LabelStoryteller>
+      <UseStorytellerLink href="/StorytellerPage" id="story-teller-link">
         🪄 Storyteller 🪄
       </UseStorytellerLink>
+      <p>Oder selbst Die Geschichte schreiben:</p>
       <NewStoryForm onSubmit={handleStorySubmit} />
 
       <PopupModal isOpen={isPopupOpen} onClose={handlePopupClose}>

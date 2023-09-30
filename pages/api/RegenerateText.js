@@ -10,7 +10,11 @@ export default async function handler(req, res) {
     const { prompt } = req.body;
     const completion = await openai.createChatCompletion({
       messages: [
-        { role: "system", content: "You are a helpfull assistant" },
+        {
+          role: "system",
+          content:
+            "Du bist Kindergeschichten erzähler. Du bekommst die Geschichte und den Veränderungswunsch vom User und schreibst das Ergebnis als Antwort. Du gibst immer nur die Antwort zurück also Die Geschichte mit Veränderungeno. ",
+        },
         { role: "user", content: prompt },
       ],
       model: "gpt-3.5-turbo",
