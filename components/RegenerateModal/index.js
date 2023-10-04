@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Label } from "../NewStoryForm/StyledNewStoryForm";
 import { StyledRegenerateModal, TextArea } from "./StyledRegenerateModal";
 import LoadingAnimation from "../LoadingAnimation";
-// const [prompt, setPrompt] = useState("");
 export default function RegenerateModal({
   isVisible,
   prompt,

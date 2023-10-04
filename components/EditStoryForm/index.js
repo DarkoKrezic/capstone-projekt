@@ -37,7 +37,6 @@ export default function EditStoryForm({ story, onUpdate }) {
     setTextContent(event.target.value);
   }
   function handlePromptChange(event) {
-    console.log(event.target.value);
     setPrompt(event.target.value);
   }
   async function handleSubmitEdit(event) {
@@ -79,7 +78,6 @@ export default function EditStoryForm({ story, onUpdate }) {
     }
   }
   async function handleRegenerateStory() {
-    console.log(prompt);
     const changeStoryPrompt = {
       prompt: ` ${story.textContent} + ${prompt}  `,
     };
@@ -97,7 +95,6 @@ export default function EditStoryForm({ story, onUpdate }) {
         throw new Error("Failed to regenerate story");
       }
       const regeneratedStoryText = await response.json();
-      console.log(regeneratedStoryText);
       setTextContent(regeneratedStoryText.newTextContent);
       setIsRegenerating(false);
     } catch (error) {
@@ -158,6 +155,7 @@ export default function EditStoryForm({ story, onUpdate }) {
         onChangePrompt={handlePromptChange}
         onRegenerate={handleRegenerateStory}
         onClose={() => setModalVisible(false)}
+        isRegenerating={isRegenerating}
       ></RegenerateModal>
       <TextArea
         id="text-input"
