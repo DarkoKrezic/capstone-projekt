@@ -7,12 +7,12 @@ import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
 import React, { useState, useEffect } from "react";
 import { Label } from "@/components/NewStoryForm/StyledNewStoryForm";
-const animateShadow = keyframes`
+export const animateShadow = keyframes`
   0% {
     text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;
   }
   50% {
-    text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px rgba(0,0,0,0.1);
+    text-shadow: 1px 1px 10px rgba(10, 10, 10, 0.5), 1px 1px 2px rgba(0, 0, 0, 0.3), 1px 1px rgba(0,0,0,0.1);
   }
   100% {
     text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;   
