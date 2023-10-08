@@ -7,7 +7,7 @@ import { headerImage } from "@/styles";
 import PopupModal from "@/components/PopUpModal";
 import React, { useState, useEffect } from "react";
 import { Label } from "@/components/NewStoryForm/StyledNewStoryForm";
-export const animateShadow = keyframes`
+const animateShadow = keyframes`
   0% {
     text-shadow: 1px 1px 10px rgba(0,0,0,0.5), 0 0 transparent;
   }
