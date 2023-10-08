@@ -31,7 +31,7 @@ export default function UseStorytellerForm() {
       return;
     }
     const storyObjectPrompt = {
-      prompt: prompt,
+      prompt: `Du bist ein Kindergeschichten Erzähler. Erzähle eine Geschichte basierend auf dem vom User eingegebenem prompt : "${prompt}". Zunächst schreibst Du die Geschichte selbst ca.400 Wörter. Dann überlegst Du einen guten Titel für die Geschichte und überlegst Dir, wie man die Geschichte als ein Bild beschreiben könnte. Dein Response soll ein JSON Objekt mit keys so wie dieses: "title":"hier kommt der Titel der Geschichte", "textContent":"hier kommt die Geschichte", "coverImagePrompt":"hier kommt unsere Bildbeschreibung, schreib dass wir Kinderbuchstil anwenden wollen. Die  Beschreibung darf max 30 Wörter lang sein"`,
     };
     try {
       setIsLoading(true);
