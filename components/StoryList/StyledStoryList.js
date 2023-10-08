@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { headerImage } from "@/styles";
 import Link from "next/link";
-import { animateShadow } from "../../pages/CreateStory";
+import { animateShadow } from "../../styles";
 export const Header = styled.h1`
   font-size: 2rem;
   text-align: center;

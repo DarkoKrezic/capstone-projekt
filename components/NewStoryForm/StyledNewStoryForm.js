@@ -1,6 +1,6 @@
 import { quaternaryColor, secondaryColor, tertiaryColor } from "@/styles";
 import styled from "styled-components";
-import { animateShadow } from "@/styles";
+import { animateShadow } from "../../styles";
 
 export const Form = styled.form`
   display: flex;
