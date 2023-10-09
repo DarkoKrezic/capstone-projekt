@@ -67,7 +67,10 @@ export default async function handler(req, res) {
     const { prompt } = req.body;
     const completion = await openai.createChatCompletion({
       messages: [
-        { role: "system", content: "You are a helpfull assistant" },
+        {
+          role: "system",
+          content: `Your Answer has following format {"title":"Titel der Geschichte","textCotent":"text unserer Geschichte", "coverImagePrompt":"unser prompt für DALL-E"}`,
+        },
         { role: "user", content: prompt },
       ],
       model: "gpt-3.5-turbo",
