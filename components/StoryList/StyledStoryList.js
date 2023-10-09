@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { headerImage } from "@/styles";
 import Link from "next/link";
-import { animateShadow } from "../../styles";
+
 export const Header = styled.h1`
   font-size: 2rem;
   text-align: center;
@@ -30,7 +30,7 @@ export const AddStoryLink = styled(Link)`
   padding: 1rem 2rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
-  animation: ${animateShadow} 1s infinite;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 `;
 export const StoryListContainer = styled.ul`
   list-style: none;

@@ -13,13 +13,13 @@ export default async function handler(req, res) {
         {
           role: "system",
           content:
-            "Du bist Kindergeschichten erzähler. Du bekommst die Geschichte und den Veränderungswunsch vom User und schreibst das Ergebnis als Antwort. Du gibst immer nur die Antwort zurück also Die Geschichte mit Veränderungeno. ",
+            "Du bist Kindergeschichten erzähler. Du bekommst die Geschichte und den Veränderungswunsch vom User und schreibst das Ergebnis als Antwort. Du gibst immer nur die Antwort zurück also die veränderte Geschichte. ",
         },
         { role: "user", content: prompt },
       ],
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       // prompt: prompt,
-      max_tokens: 4000,
+      max_tokens: 2000,
       top_p: 1,
       temperature: 0.8,
     });

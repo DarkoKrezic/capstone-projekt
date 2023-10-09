@@ -1,6 +1,5 @@
 import { quaternaryColor, secondaryColor, tertiaryColor } from "@/styles";
 import styled from "styled-components";
-import { animateShadow } from "../../styles";
 
 export const Form = styled.form`
   display: flex;
@@ -45,7 +44,6 @@ export const Button = styled.button`
   border-radius: 7px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.499) 3px 3px 10px 3px;
-  animation: ${animateShadow} 1s infinite;
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.702) 3px 3px 10px 3px;
   }
