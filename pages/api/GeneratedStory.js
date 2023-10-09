@@ -70,12 +70,13 @@ export default async function handler(req, res) {
         { role: "system", content: "You are a helpfull assistant" },
         { role: "user", content: prompt },
       ],
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       // prompt: prompt,
-      max_tokens: 4000,
+      max_tokens: 2000,
       top_p: 1,
       temperature: 0.8,
     });
+    console.log(completion.data.choices[0]);
     const jsonString = completion.data.choices[0].message.content;
     const formattedJsonString = jsonString.replace(/(\r\n|\n|\r)/gm, "");
     const generatedStory = JSON.parse(formattedJsonString);
