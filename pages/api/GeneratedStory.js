@@ -73,9 +73,9 @@ export default async function handler(req, res) {
         },
         { role: "user", content: prompt },
       ],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       // prompt: prompt,
-      max_tokens: 2000,
+      max_tokens: 4000,
       top_p: 1,
       temperature: 0.8,
     });
